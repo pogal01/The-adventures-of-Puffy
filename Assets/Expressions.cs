@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Expressions : MonoBehaviour
 {
-   [HideInInspector] public GameObject [] TheExpressions;
+   
+    [HideInInspector]  public GameObject [] TheExpressions;
 
 
     public enum Faces
@@ -26,17 +27,22 @@ public class Expressions : MonoBehaviour
 
     // Update is called once per frame
 
-    void ActivateFace(GameObject Face)
+   public void ActivateFace(GameObject Face)
+    {
+        DisableFace();
+        Face.SetActive(true);
+
+
+    }
+
+    public void DisableFace()
     {
         foreach (var Mouth in TheExpressions)
         {
             Mouth.SetActive(false);
-            
+
 
         }
-        Face.SetActive(true);
-
-
     }
 
 
@@ -46,11 +52,11 @@ public class Expressions : MonoBehaviour
         switch (Expression)
         {
             case Faces.Happy:
-                ActivateFace(TheExpressions[2]);
+                ActivateFace(TheExpressions[1]);
              
                 break;
             case Faces.Sad:
-               ActivateFace(TheExpressions[1]);
+               ActivateFace(TheExpressions[3]);
                
                 break;
             case Faces.Open:
@@ -58,7 +64,7 @@ public class Expressions : MonoBehaviour
               
                 break;
             case Faces.Normal:
-                ActivateFace(TheExpressions[3]);
+                ActivateFace(TheExpressions[2]);
                
                 break;
             case Faces.Closed:
