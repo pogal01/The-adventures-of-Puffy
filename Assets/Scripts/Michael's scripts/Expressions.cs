@@ -6,8 +6,8 @@ public class Expressions : MonoBehaviour
 {
    
     [HideInInspector]  public GameObject [] TheExpressions;
-    [HideInInspector]  public GameObject[] TheEyes;
-   
+      public GameObject[] TheEyes;
+    
 
     public enum Faces
     {
@@ -75,6 +75,15 @@ public class Expressions : MonoBehaviour
 
 
         }
+    }
+
+    public void EnableNormalEyes()
+    {
+        ChangeExpression();
+
+
+
+
     }
 
 
