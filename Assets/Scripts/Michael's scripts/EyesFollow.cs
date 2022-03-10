@@ -33,21 +33,13 @@ public class EyesFollow : MonoBehaviour
         //float angle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg) - 90f;
         //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         Pos = new Vector2(Mousecursor.x,Mousecursor.y);
-        if(gameObject == leftEye)
-        {
+       
             Pos.x = Mathf.Clamp(Pos.x, LeftClamp.transform.position.x, RightClamp.transform.position.x);
 
             Pos.y = Mathf.Clamp(Pos.y, DownClamp.transform.position.y, UpClamp.transform.position.y);
 
-        }
+        
 
-        if (gameObject == RightEye)
-        {
-            Pos.x = Mathf.Clamp(Pos.x, -0.95f, -0.8f);
-
-            Pos.y = Mathf.Clamp(Pos.y, 0.4f, 0.6f);
-
-        }
 
 
 
