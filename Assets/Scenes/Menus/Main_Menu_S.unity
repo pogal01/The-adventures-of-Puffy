@@ -217,7 +217,7 @@ RectTransform:
   - {fileID: 222534799}
   - {fileID: 1728588103}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -342,7 +342,7 @@ Transform:
   m_LocalScale: {x: 20, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &371664623
 GameObject:
@@ -1415,7 +1415,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641319000
 GameObject:
@@ -1942,6 +1942,16 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: -9, y: -4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -7, y: -4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 2
@@ -2557,17 +2567,17 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 95047ded691874e43b87ea724840f735, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 38ee354c270931342bc91cdfcc02a3ef, type: 2}
-  - m_RefCount: 61
+  - m_RefCount: 62
     m_Data: {fileID: 11400000, guid: f3dd574dc45776a499ecd0d5a450e7b1, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 4
     m_Data: {fileID: 21300000, guid: 412d37ab78ad45442b1ade30efdf0ced, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 21300000, guid: 3419c2ffa94d4e647addd4389022dae6, type: 3}
-  - m_RefCount: 61
+  - m_RefCount: 62
     m_Data: {fileID: 21300000, guid: c404730c84d85f4428e7c27b6478e9cf, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 71
+  - m_RefCount: 72
     m_Data:
       e00: 1
       e01: 0
@@ -2586,7 +2596,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 71
+  - m_RefCount: 72
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -4922,7 +4932,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1865825080
 GameObject:
@@ -4953,7 +4963,7 @@ Transform:
   m_Children:
   - {fileID: 641319002}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929284812
 GameObject:
