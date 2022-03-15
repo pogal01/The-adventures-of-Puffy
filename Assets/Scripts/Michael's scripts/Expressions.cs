@@ -36,6 +36,7 @@ public class Expressions : MonoBehaviour
         Expression = Faces.Normal;
         CurrentFace = Expression;
         CurrentEyes = eyes;
+        ActivateEyes(TheEyes[0]);
         ChangeExpression();
     }
 

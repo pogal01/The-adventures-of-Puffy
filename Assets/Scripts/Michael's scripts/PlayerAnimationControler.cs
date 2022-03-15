@@ -18,13 +18,19 @@ public class PlayerAnimationControler : MonoBehaviour
 
 
     // Start is called before the first frame update
+
+    private GameObject DashSlider;
+
+
     void Start()
     {
         ExpressionsScript = gameObject.GetComponent<Expressions>();
-
+        DashSlider = GameObject.Find("DashCooldown");
         Player = GameObject.Find("Puffy");
         PlayerAnimator = Player.GetComponent<Animator>();
 
+
+        DashSlider.SetActive(false);
         //Colliders
         StartPuffCol = GameObject.Find("StartPuffCol");
         AlmostPuffedCol = GameObject.Find("AlmostPuffedCol");
@@ -68,6 +74,7 @@ public class PlayerAnimationControler : MonoBehaviour
         }
 
     }
+
 
     void ChangeCollision(GameObject Col)
     {
@@ -120,10 +127,10 @@ public class PlayerAnimationControler : MonoBehaviour
 
     }
 
-    void DashAnim()
+    public void DashAnim()
     {
-
-
+        PlayerAnimator.SetTrigger("ActivatedDash");
+        DashSlider.SetActive(true);
 
     }
 
