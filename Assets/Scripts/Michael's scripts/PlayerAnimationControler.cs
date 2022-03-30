@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimationControler : MonoBehaviour
 {
-    private Animator PlayerAnimator;
+   [HideInInspector] public Animator PlayerAnimator;
     private GameObject Player;
     private bool PuffupB = false;
     private Expressions ExpressionsScript;
@@ -120,12 +120,27 @@ public class PlayerAnimationControler : MonoBehaviour
     }
 
 
-    void FlyAnim()
-    {
+   public void FlyAnimStart()
+   {
+        PlayerAnimator.SetTrigger("StartFlying");
+        
+   }
 
-
-
+   public void FlyAnimFin()
+   {
+       PlayerAnimator.SetTrigger("EndFlying");
+        
     }
+
+  public void FlapAnim()
+  {
+        PlayerAnimator.SetTrigger("Flap");
+        
+
+        
+  }
+
+
 
     public void DashAnim()
     {

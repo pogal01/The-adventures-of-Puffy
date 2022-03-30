@@ -88,7 +88,7 @@ public class Expressions : MonoBehaviour
     }
 
 
-    private void ChangeExpression()
+    public void ChangeExpression()
     {
         switch (Expression)
         {
