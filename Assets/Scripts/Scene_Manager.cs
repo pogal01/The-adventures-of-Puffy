@@ -29,6 +29,12 @@ public class Scene_Manager : MonoBehaviour
         SceneManager.LoadScene("Final_Level_S");
     }
 
+    public void Main_Menu()
+    {
+        Debug.Log("Switching to Main Menu");
+        SceneManager.LoadScene("Main_Menu_S");
+    }
+
     public void Settings()
     {
         Debug.Log("Switching to Setting");
