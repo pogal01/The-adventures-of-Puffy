@@ -6,7 +6,7 @@ public class Expressions : MonoBehaviour
 {
    
     [HideInInspector]  public GameObject [] TheExpressions;
-      public GameObject[] TheEyes;
+    [HideInInspector] public GameObject[] TheEyes;
     
 
     public enum Faces
