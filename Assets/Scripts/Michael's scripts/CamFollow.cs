@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamFollow : MonoBehaviour
 {
     private GameObject Player;
-    private Camera MainCam;
+    private Camera PlayerCam;
     private GameObject MainCamOBJ;
     private float DistanceFromPlayer;
     private Vector3 Dist;
@@ -17,8 +17,8 @@ public class CamFollow : MonoBehaviour
     {
         DistanceFromPlayer = -5f;
         Player = GameObject.Find("Puffy");
-        MainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        MainCamOBJ = GameObject.Find("Main Camera");
+        PlayerCam = GameObject.Find("Player_Camera").GetComponent<Camera>();
+        MainCamOBJ = GameObject.Find("Player_Camera");
     }
 
     // Update is called once per frame

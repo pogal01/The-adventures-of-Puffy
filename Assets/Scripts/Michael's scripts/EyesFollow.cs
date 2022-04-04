@@ -8,7 +8,7 @@ public class EyesFollow : MonoBehaviour
     private GameObject Player;
     public Vector2 Pos;
     private Vector2 Mousecursor;
-    public Camera MainCam;
+    public Camera PlayerCam;
     public GameObject leftEye;
     public GameObject RightEye;
     public Transform LeftClamp;
@@ -18,6 +18,7 @@ public class EyesFollow : MonoBehaviour
     private CharacterControler PuffyControlerscript;
     void Start()
     {
+        PlayerCam = GameObject.Find("Player_Camera").GetComponent<Camera>();
         leftEye = GameObject.Find("Left Pupil Normal");
         RightEye = GameObject.Find("Right Pupil Normal");
         Player = GameObject.Find("Puffy");
@@ -31,14 +32,14 @@ public class EyesFollow : MonoBehaviour
     {
 
       
-        Mousecursor = MainCam.ScreenToWorldPoint(Input.mousePosition);
+        Mousecursor = PlayerCam.ScreenToWorldPoint(Input.mousePosition);
         //float angle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg) - 90f;
         //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         
 
         if (PuffyControlerscript.flipped)
         {
-            Mousecursor = MainCam.ScreenToWorldPoint(Input.mousePosition);
+            Mousecursor = PlayerCam.ScreenToWorldPoint(Input.mousePosition);
             Pos = new Vector2 (Mousecursor.x, Mousecursor.y);
 
             Pos.x = Mathf.Clamp(Pos.x, RightClamp.transform.position.x, LeftClamp.transform.position.x);
@@ -47,7 +48,7 @@ public class EyesFollow : MonoBehaviour
         }
         else
         {
-            Mousecursor = MainCam.ScreenToWorldPoint(Input.mousePosition);
+            Mousecursor = PlayerCam.ScreenToWorldPoint(Input.mousePosition);
             Pos = new Vector2(Mousecursor.x, Mousecursor.y);
 
             Pos.x = Mathf.Clamp(Pos.x, LeftClamp.transform.position.x, RightClamp.transform.position.x);
@@ -64,7 +65,7 @@ public class EyesFollow : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log(MainCam.ScreenToWorldPoint(Input.mousePosition));
+            Debug.Log(PlayerCam.ScreenToWorldPoint(Input.mousePosition));
 
         }
         

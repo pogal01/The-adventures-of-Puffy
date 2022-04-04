@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Exit_Collision : MonoBehaviour
 {
     [SerializeField]
-    CapsuleCollider2D collision;
+    PolygonCollider2D collision;
     [SerializeField]
     int WhichScene;
 
