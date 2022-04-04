@@ -18,8 +18,8 @@ public class CharacterControler : MonoBehaviour
     public bool flipped;
     private PlayerAnimationControler AnimationScript;
     private Expressions ExpressionsScript;
-    public float DashTimer;
-    public float DashIntival;
+   [HideInInspector] public float DashTimer;
+   [HideInInspector] public float DashIntival;
     private bool DashTimerActive;
     private bool IsDashOnCooldown = false;
     private GameObject DashSlider;
@@ -27,12 +27,13 @@ public class CharacterControler : MonoBehaviour
     private Vector2 Direction;
     public float FlyForce;
 
-    public float FlapTimer;
-    public float FlapIntival;
+    [HideInInspector] public float FlapTimer;
+    [HideInInspector] public float FlapIntival;
     private bool FlapTimerActive;
     private bool IsFlapOnCooldown;
 
-
+    public float BubbleCooldown;
+    private float BubbleTime;
     public float GravityRange;
     public enum state
     {
@@ -63,7 +64,8 @@ public class CharacterControler : MonoBehaviour
         IsSwimming = false;
         //Debug.log(Player.transform.rotation);
         Direction = new Vector2(1, 0);
-
+        BubbleCooldown = 0.2f;
+        BubbleTime = BubbleCooldown;
         Invoke("StartedInWater", 0.2f);
     }
 
@@ -240,14 +242,14 @@ public class CharacterControler : MonoBehaviour
 
     void MoveUP()
     {
-        Ridge.AddForce(new Vector2 (0,500f));
+        Ridge.AddForce(new Vector2 (0,1000f));
 
 
 
     }
     void MoveDown()
     {
-        Ridge.AddForce(new Vector2(0, -500f));
+        Ridge.AddForce(new Vector2(0, -1000f));
 
 
 
@@ -282,6 +284,24 @@ public class CharacterControler : MonoBehaviour
 
 
     }
+
+    IEnumerator BubbleBeam()
+    {
+
+        if (BubbleTime == BubbleCooldown)
+        {
+            BubbleTime = 0;
+
+            yield return new WaitForSeconds(BubbleCooldown);
+            BubbleTime = BubbleCooldown;
+
+
+        }
+        
+       
+        
+    }
+
 
 
     private void FixedUpdate()

@@ -5,8 +5,8 @@ using UnityEngine;
 public class Expressions : MonoBehaviour
 {
    
-    [HideInInspector]  public GameObject [] TheExpressions;
-    [HideInInspector] public GameObject[] TheEyes;
+     public GameObject [] TheExpressions;
+     public GameObject[] TheEyes;
     
 
     public enum Faces

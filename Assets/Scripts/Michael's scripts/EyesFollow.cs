@@ -8,9 +8,9 @@ public class EyesFollow : MonoBehaviour
     private GameObject Player;
     public Vector2 Pos;
     private Vector2 Mousecursor;
-    [HideInInspector] public Camera MainCam;
-    [HideInInspector] public GameObject leftEye;
-    [HideInInspector] public GameObject RightEye;
+    public Camera MainCam;
+    public GameObject leftEye;
+    public GameObject RightEye;
     public Transform LeftClamp;
     public Transform RightClamp;
     public Transform DownClamp;
