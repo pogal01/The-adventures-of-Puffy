@@ -142,6 +142,11 @@ public class CharacterControler : MonoBehaviour
             Debug.Log("Has entered water");
 
         }
+
+
+
+
+
        
     }
 
@@ -155,8 +160,9 @@ public class CharacterControler : MonoBehaviour
 
             Debug.Log("Has left water");
             Ridge.velocity += new Vector2(0,2);
-
-            StartCoroutine(SpinToTheRight());
+			AnimationScript.PlayerAnimator.ResetTrigger("SwimStart");
+			AnimationScript.PlayerAnimator.ResetTrigger("EndFlying");
+			StartCoroutine(SpinToTheRight());
         }
     }
    
@@ -175,8 +181,9 @@ public class CharacterControler : MonoBehaviour
     void MoveUP()
     {
         moveCounter --;
-        Ridge.AddForce(new Vector2 (0,200f));
-        if (moveCounter == 0) {
+        Ridge.AddForce(new Vector2 (0,800f));
+		
+		if (moveCounter == 0) {
             CancelInvoke("MoveUP");
         }
 
@@ -208,7 +215,7 @@ public class CharacterControler : MonoBehaviour
             yield return null;
         }
         startRotation = transform.eulerAngles;
-        Debug.Log(startRotation.z);
+        //Debug.Log(startRotation.z);
         for (float t = 0; t <= 1; t += Time.deltaTime)
         {   
             transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, Mathf.Lerp(startRotation.z, 720, t));
@@ -400,7 +407,7 @@ public class CharacterControler : MonoBehaviour
                 Direction = new Vector2(1, 0);
 
             }
-
+			
 
         }
       

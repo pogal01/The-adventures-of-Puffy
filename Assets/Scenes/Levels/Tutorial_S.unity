@@ -8363,6 +8363,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2434901291896107411, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434901292394098330, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 178d1d7c8d4de214880bfae13ff9636e, type: 2}
+    - target: {fileID: 2434901292394098331, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 178d1d7c8d4de214880bfae13ff9636e, type: 2}
+    - target: {fileID: 2434901292394098340, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2434901292394098341, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
       propertyPath: m_Name
       value: Puffy
@@ -8410,6 +8426,14 @@ PrefabInstance:
     - target: {fileID: 2434901292394098342, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434901293822439009, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623581814610288650, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+      propertyPath: m_Name
+      value: MainCollisionCopy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
