@@ -10,10 +10,10 @@ public class CharacterControler : MonoBehaviour
     private bool IsSwimming;
     private float Hoz;
     private float Vert;
-    private bool InWater = true;
+    private bool InSky = false;
     private GameObject Player;
     public float TurnSpeed;
-    private Quaternion CurrentRotation;
+    private static Quaternion CurrentRotation;
     private Quaternion NewRotation;
     public bool flipped;
     private PlayerAnimationControler AnimationScript;
@@ -35,6 +35,9 @@ public class CharacterControler : MonoBehaviour
     public float BubbleCooldown;
     private float BubbleTime;
     public float GravityRange;
+
+    private int spinCounter;
+    private int moveCounter;
     public enum state
     {
         Swim,
@@ -123,109 +126,36 @@ public class CharacterControler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D Col)
     {
-        //Debug.log("Puffy has collided with" + Col.gameObject.tag);
-        
+        Debug.Log("Puffy has collided with" + Col.gameObject.tag);
 
-
-        if(PuffyState != state.Fly)
+        if (Col.tag == "Water")
         {
+            PuffyState = state.Swim;
+            //Debug.log("State = " + PuffyState);
+            Ridge.velocity = new Vector2(0, 0);
+            AnimationScript.FlyAnimFin();
+            AnimationScript.PlayerAnimator.SetTrigger("SwimStart");
+            ExpressionsScript.ChangeExpression();
 
-            if (Col.tag == "Sky")
-            {
-                PuffyState = state.Fly;
-                //Debug.log("State = " + PuffyState);
-                Ridge.velocity = new Vector2(0, 0);
-                AnimationScript.FlyAnimStart();
-
-                Debug.Log("Has enterd Sky");
-                InvokeFunction("SpinToTheRight", 1.05f);
-                InvokeFunction("MoveUP", 0.05f);
-                InvokeFunction("SpinToTheRight", 1.1f);
-                InvokeFunction("MoveUP", 0.1f);
-                InvokeFunction("SpinToTheRight", 1.15f);
-                InvokeFunction("MoveUP", 0.15f);
-                InvokeFunction("StopFLoatAnim", 0.18f);
-                InvokeFunction("SpinToTheRight", 1.2f);
-                // InvokeFunction("MoveUP", 0.2f);
-                InvokeFunction("SpinToTheRight", 1.25f);
-                // InvokeFunction("MoveUP", 0.25f);
-                InvokeFunction("SpinToTheRight", 1.3f);
-                // InvokeFunction("MoveUP", 0.3f);
-                InvokeFunction("SpinToTheRight", 1.35f);
-                // InvokeFunction("MoveUP", 0.35f);
-                InvokeFunction("SpinToTheRight", 1.4f);
-                //InvokeFunction("MoveUP", 0.4f);
-                InvokeFunction("SpinToTheRight", 1.45f);
-                //InvokeFunction("MoveUP", 0.45f);
-                InvokeFunction("SpinToTheRight", 1.5f);
-                //InvokeFunction("MoveUP", 0.5f);
-                InvokeFunction("SpinToTheRight", 1.55f);
-                // InvokeFunction("MoveUP", 0.55f);
-                InvokeFunction("SpinToTheRight", 1.6f);
-                // InvokeFunction("MoveUP", 0.6f);
-                InvokeFunction("SpinToTheRight", 1.65f);
-                // InvokeFunction("MoveUP", 0.65f);
-                InvokeFunction("SpinToTheRight", 1.7f);
-                //InvokeFunction("MoveUP", 0.7f);
-                InvokeFunction("EnableGravity", 1.7f);
-            }
-
-
-        }
-
-
-        if(PuffyState != state.Swim)
-        {
-            if (Col.tag == "Water")
-            {
-                PuffyState = state.Swim;
-                //Debug.log("State = " + PuffyState);
-                Ridge.velocity = new Vector2(0, 0);
-                AnimationScript.FlyAnimFin();
-                AnimationScript.PlayerAnimator.SetTrigger("SwimStart");
-                ExpressionsScript.ChangeExpression();
-                Ridge.gravityScale = 0;
-
-                Debug.Log("Has enterd water");
-
-                InvokeFunction("SpinToTheRight", 1.05f);
-                InvokeFunction("MoveDown", 0.05f);
-                InvokeFunction("SpinToTheRight", 1.1f);
-                InvokeFunction("MoveDown", 0.1f);
-                InvokeFunction("SpinToTheRight", 1.15f);
-                InvokeFunction("MoveDown", 0.15f);
-                InvokeFunction("StopFLoatAnim", 0.18f);
-                InvokeFunction("SpinToTheRight", 1.2f);
-                // InvokeFunction("MoveUP", 0.2f);
-                InvokeFunction("SpinToTheRight", 1.25f);
-                // InvokeFunction("MoveUP", 0.25f);
-                InvokeFunction("SpinToTheRight", 1.3f);
-                // InvokeFunction("MoveUP", 0.3f);
-                InvokeFunction("SpinToTheRight", 1.35f);
-                // InvokeFunction("MoveUP", 0.35f);
-                InvokeFunction("SpinToTheRight", 1.4f);
-                //InvokeFunction("MoveUP", 0.4f);
-                InvokeFunction("SpinToTheRight", 1.45f);
-                //InvokeFunction("MoveUP", 0.45f);
-                InvokeFunction("SpinToTheRight", 1.5f);
-                //InvokeFunction("MoveUP", 0.5f);
-                InvokeFunction("SpinToTheRight", 1.55f);
-                // InvokeFunction("MoveUP", 0.55f);
-                InvokeFunction("SpinToTheRight", 1.6f);
-                // InvokeFunction("MoveUP", 0.6f);
-                InvokeFunction("SpinToTheRight", 1.65f);
-                // InvokeFunction("MoveUP", 0.65f);
-                InvokeFunction("SpinToTheRight", 1.7f);
-                //InvokeFunction("MoveUP", 0.7f);
-                InvokeFunction("EnableGravity", 1.7f);
-
-
-            }
-
-
+            Debug.Log("Has entered water");
 
         }
        
+    }
+
+    private void OnTriggerExit2D(Collider2D Col) {
+        if (Col.tag == "Water" && Ridge.velocity.y > 0)
+        {
+            PuffyState = state.Fly;
+            //Debug.log("State = " + PuffyState);
+            AnimationScript.FlyAnimStart();
+
+            Debug.Log("Has left water");
+            Ridge.velocity = Ridge.velocity * 1.2f;
+
+            spinCounter = 270;
+            InvokeRepeating("SpinToTheRight", 0.05f, 0.005f);
+        }
     }
    
 
@@ -242,16 +172,22 @@ public class CharacterControler : MonoBehaviour
 
     void MoveUP()
     {
+        moveCounter --;
         Ridge.AddForce(new Vector2 (0,1000f));
+        if (moveCounter == 0) {
+            CancelInvoke("MoveUP");
+        }
 
 
 
     }
     void MoveDown()
     {
-        Ridge.AddForce(new Vector2(0, -1000f));
-
-
+        moveCounter --;
+        Ridge.AddForce(new Vector2 (0,-1000f));
+        if (moveCounter == 0) {
+            CancelInvoke("MoveDown");
+        }
 
     }
 
@@ -266,24 +202,16 @@ public class CharacterControler : MonoBehaviour
 
     void SpinToTheRight()
     {
-
-        NewRotation = Quaternion.Euler(0, 0, 360);
-        transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
-        CurrentRotation = Player.transform.rotation;
-        Debug.Log("Spin to right");
+        spinCounter --;
+        transform.Rotate(0,0,1);
+        //Debug.Log("Spin to right");
         Direction = new Vector2(1, 0);
-
-
-    }
-
-
-    void EnableGravity()
-    {
-        Ridge.gravityScale = GravityRange;
-
-
+        if (spinCounter == 0) {
+            CancelInvoke("SpinToTheRight");
+        }
 
     }
+
 
     IEnumerator BubbleBeam()
     {
@@ -308,6 +236,9 @@ public class CharacterControler : MonoBehaviour
     {
         Hoz = Input.GetAxisRaw("Horizontal");
         Vert = Input.GetAxisRaw("Vertical");
+
+        if (PuffyState == state.Swim) Ridge.gravityScale = 0;
+        else Ridge.gravityScale = GravityRange;
         if (PuffyState == state.Swim)
         {
             if (!IsDashing)

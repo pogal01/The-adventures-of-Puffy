@@ -55,18 +55,18 @@ public class PlayerAnimationControler : MonoBehaviour
         ExpressionsScript.DisableFace();
         if (PuffupB)
         {
-            StartCoroutine(CheekyWorkaround("ChangeCollision", 1.5f, StartPuffCol));
-            StartCoroutine(CheekyWorkaround("ChangeCollision", 2f, AlmostPuffedCol));
-            StartCoroutine(CheekyWorkaround("ChangeCollision", 2.9f, PuffedPuCol));
+            StartCoroutine(CheekyWorkaround("ChangeCollision", 1.5f, StartPuffCol.GetComponent<PolygonCollider2D>()));
+            StartCoroutine(CheekyWorkaround("ChangeCollision", 2f, AlmostPuffedCol.GetComponent<PolygonCollider2D>()));
+            StartCoroutine(CheekyWorkaround("ChangeCollision", 2.9f, PuffedPuCol.GetComponent<PolygonCollider2D>()));
         }
         
         Debug.Log("PuffUp");
         if (!PuffupB)
         {
             ExpressionsScript.Invoke("EnableNormalEyes", 2.7f);
-            StartCoroutine(CheekyWorkaround("ChangeCollision", 1f, AlmostPuffedCol));
-            StartCoroutine(CheekyWorkaround("ChangeCollision", 1.5f, StartPuffCol));
-            StartCoroutine(CheekyWorkaround("ChangeCollision", 2f, Player));
+            StartCoroutine(CheekyWorkaround("ChangeCollision", 1f, AlmostPuffedCol.GetComponent<PolygonCollider2D>()));
+            StartCoroutine(CheekyWorkaround("ChangeCollision", 1.5f, StartPuffCol.GetComponent<PolygonCollider2D>()));
+            StartCoroutine(CheekyWorkaround("ChangeCollision", 2f, Player.GetComponent<PolygonCollider2D>()));
             Player.GetComponent<PolygonCollider2D>().enabled = true;
             Debug.Log("Activate eyes");
 
@@ -76,19 +76,16 @@ public class PlayerAnimationControler : MonoBehaviour
     }
 
 
-    void ChangeCollision(GameObject Col)
+    void ChangeCollision(PolygonCollider2D Col)
     {
-        Player.GetComponent<PolygonCollider2D>().enabled = false;
-        StartPuffCol.GetComponent<PolygonCollider2D>().enabled = false;
-        AlmostPuffedCol.GetComponent<PolygonCollider2D>().enabled = false;
-        PuffedPuCol.GetComponent<PolygonCollider2D>().enabled = false;
-        Col.GetComponent<PolygonCollider2D>().enabled = true;
+        Player.GetComponent<PolygonCollider2D>().points = Col.points;
+        Player.GetComponent<PolygonCollider2D>().enabled = true;
 
         Debug.Log("Collision enabled for " + Col.name);
 
     }
 
-    IEnumerator CheekyWorkaround(string FunctName,float Time,GameObject Obj)
+    IEnumerator CheekyWorkaround(string FunctName,float Time, PolygonCollider2D Obj)
     {
         
         
