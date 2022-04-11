@@ -143,7 +143,8 @@ public class CharacterControler : MonoBehaviour
        
     }
 
-    private void OnTriggerExit2D(Collider2D Col) {
+    private void OnTriggerExit2D(Collider2D Col)
+	{
         if (Col.tag == "Water" && Ridge.velocity.y > 0)
         {
             PuffyState = state.Fly;
