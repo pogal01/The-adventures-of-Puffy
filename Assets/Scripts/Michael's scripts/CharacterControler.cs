@@ -13,8 +13,10 @@ public class CharacterControler : MonoBehaviour
     private bool InSky = false;
     private GameObject Player;
     public float TurnSpeed;
-    private static Quaternion CurrentRotation;
+    private Quaternion CurrentRotation;
     private Quaternion NewRotation;
+
+    private static Vector3 startRotation;
     public bool flipped;
     private PlayerAnimationControler AnimationScript;
     private Expressions ExpressionsScript;
@@ -152,10 +154,9 @@ public class CharacterControler : MonoBehaviour
             AnimationScript.FlyAnimStart();
 
             Debug.Log("Has left water");
-            Ridge.velocity = Ridge.velocity * 1.2f;
+            Ridge.velocity += new Vector2(0,2);
 
-            spinCounter = 270;
-            InvokeRepeating("SpinToTheRight", 0.05f, 0.005f);
+            StartCoroutine(SpinToTheRight());
         }
     }
    
@@ -201,18 +202,21 @@ public class CharacterControler : MonoBehaviour
 
     }
 
-    void SpinToTheRight()
+    IEnumerator SpinToTheRight()
     {
-        spinCounter --;
-        transform.Rotate(0,0,1);
-        //Debug.Log("Spin to right");
-        Direction = new Vector2(1, 0);
-        if (spinCounter == 0) {
-            CancelInvoke("SpinToTheRight");
+        for (float t = 0; t <= 0.5; t += Time.deltaTime) {
+            yield return null;
         }
-
+        startRotation = transform.eulerAngles;
+        Debug.Log(startRotation.z);
+        for (float t = 0; t <= 1; t += Time.deltaTime)
+        {   
+            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, Mathf.Lerp(startRotation.z, 720, t));
+            yield return null;
+        }
+        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+        Direction = new Vector2(1, 0);
     }
-
 
     IEnumerator BubbleBeam()
     {
