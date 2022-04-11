@@ -13,24 +13,26 @@ public class PlayerAnimationControler : MonoBehaviour
     private GameObject StartPuffCol;
     private GameObject AlmostPuffedCol;
     private GameObject PuffedPuCol;
+	private GameObject NormalCollider; 
 
 
 
+	// Start is called before the first frame update
 
-    // Start is called before the first frame update
-
-    private GameObject DashSlider;
+	private GameObject DashSlider;
 
 
     void Start()
     {
+		
+
         ExpressionsScript = gameObject.GetComponent<Expressions>();
         DashSlider = GameObject.Find("DashCooldown");
         Player = GameObject.Find("Puffy");
         PlayerAnimator = Player.GetComponent<Animator>();
+		
 
-
-        DashSlider.SetActive(false);
+		DashSlider.SetActive(false);
         //Colliders
         StartPuffCol = GameObject.Find("StartPuffCol");
         AlmostPuffedCol = GameObject.Find("AlmostPuffedCol");
@@ -38,13 +40,13 @@ public class PlayerAnimationControler : MonoBehaviour
         StartPuffCol.GetComponent<PolygonCollider2D>().enabled = false;
         AlmostPuffedCol.GetComponent<PolygonCollider2D>().enabled = false;
         PuffedPuCol.GetComponent<PolygonCollider2D>().enabled = false;
+		NormalCollider = GameObject.Find("MainCollisionCopy");
+
+		//
 
 
-        //
 
-
-
-    }
+	}
 
 
     void PuffupAnim()
@@ -63,11 +65,11 @@ public class PlayerAnimationControler : MonoBehaviour
         Debug.Log("PuffUp");
         if (!PuffupB)
         {
-            ExpressionsScript.Invoke("EnableNormalEyes", 2.7f);
             StartCoroutine(CheekyWorkaround("ChangeCollision", 1f, AlmostPuffedCol.GetComponent<PolygonCollider2D>()));
             StartCoroutine(CheekyWorkaround("ChangeCollision", 1.5f, StartPuffCol.GetComponent<PolygonCollider2D>()));
-            StartCoroutine(CheekyWorkaround("ChangeCollision", 2f, Player.GetComponent<PolygonCollider2D>()));
-            Player.GetComponent<PolygonCollider2D>().enabled = true;
+            StartCoroutine(CheekyWorkaround("ChangeCollision", 2f,NormalCollider.GetComponent<PolygonCollider2D>()));
+			ExpressionsScript.Invoke("EnableNormalEyes", 2.7f);
+			Player.GetComponent<PolygonCollider2D>().enabled = true;
             Debug.Log("Activate eyes");
 
 
@@ -78,6 +80,7 @@ public class PlayerAnimationControler : MonoBehaviour
 
     void ChangeCollision(PolygonCollider2D Col)
     {
+
         Player.GetComponent<PolygonCollider2D>().points = Col.points;
         Player.GetComponent<PolygonCollider2D>().enabled = true;
 

@@ -175,7 +175,7 @@ public class CharacterControler : MonoBehaviour
     void MoveUP()
     {
         moveCounter --;
-        Ridge.AddForce(new Vector2 (0,1000f));
+        Ridge.AddForce(new Vector2 (0,200f));
         if (moveCounter == 0) {
             CancelInvoke("MoveUP");
         }
