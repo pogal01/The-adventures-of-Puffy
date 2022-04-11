@@ -40,6 +40,12 @@ public class Scene_Manager : MonoBehaviour
         Debug.Log("Switching to Setting");
         SceneManager.LoadScene("Settings_S");
     }
+    
+    public void Credits()
+    {
+        Debug.Log("Switching to Credits");
+        SceneManager.LoadScene("Credits_S");
+    }
 
     public void Quit()
     {
