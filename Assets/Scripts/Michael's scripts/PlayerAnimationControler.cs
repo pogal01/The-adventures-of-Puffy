@@ -13,8 +13,8 @@ public class PlayerAnimationControler : MonoBehaviour
     private GameObject StartPuffCol;
     private GameObject AlmostPuffedCol;
     private GameObject PuffedPuCol;
-	private GameObject NormalCollider; 
-
+	private GameObject NormalCollider;
+	private GameObject HopCollider;
 
 
 	// Start is called before the first frame update
@@ -30,7 +30,7 @@ public class PlayerAnimationControler : MonoBehaviour
         DashSlider = GameObject.Find("DashCooldown");
         Player = GameObject.Find("Puffy");
         PlayerAnimator = Player.GetComponent<Animator>();
-		
+		HopCollider = GameObject.Find("HopCollision");
 
 		DashSlider.SetActive(false);
         //Colliders
@@ -150,8 +150,25 @@ public class PlayerAnimationControler : MonoBehaviour
     }
 
     
-    // Update is called once per frame
-    void Update()
+	public void ISGrounded()
+	{
+		PlayerAnimator.SetBool("Grounded", true);
+		ChangeCollision(HopCollider.GetComponent<PolygonCollider2D>());
+
+
+	}
+
+	public void NotGrounded()
+	{
+		PlayerAnimator.SetBool("Grounded", false);
+		ChangeCollision(Player.GetComponent<PolygonCollider2D>());
+
+
+	}
+
+
+	// Update is called once per frame
+	void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {

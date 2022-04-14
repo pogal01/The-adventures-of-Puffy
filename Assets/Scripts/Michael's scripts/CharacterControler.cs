@@ -55,6 +55,10 @@ public class CharacterControler : MonoBehaviour
         DashSlider = GameObject.Find("DashCooldown");
     }
 
+	//Grounded stuff
+	private bool Grounded;
+	
+
 	//Debug
 	private Collider2D LastCollider;
 
@@ -168,7 +172,32 @@ public class CharacterControler : MonoBehaviour
 	}
 	*/
 
-	
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.collider.tag == "Ground")
+		{
+			Grounded = true;
+			AnimationScript.ISGrounded();
+
+
+		}
+
+
+
+
+	}
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.collider.tag == "Ground")
+		{
+			Grounded = false;
+			AnimationScript.NotGrounded();
+
+
+		}
+	}
+
 
 	private void OnTriggerExit2D(Collider2D Col)
 	{
@@ -445,6 +474,22 @@ public class CharacterControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(Hoz != 0)
+		{
+			AnimationScript.PlayerAnimator.SetBool("IsMoving", true);
+
+
+
+
+		}
+		else
+		{
+			AnimationScript.PlayerAnimator.SetBool("IsMoving", false);
+
+		}
+
+
+
         if (DashTimerActive)
         {
             DashTimer += Time.deltaTime;
