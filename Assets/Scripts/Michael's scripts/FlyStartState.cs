@@ -5,16 +5,26 @@ using UnityEngine;
 public class FlyStartState : StateMachineBehaviour
 {
     private Expressions ExpressionsScript;
+	private CharacterControler CharacterControlerScript;
 
     private void Awake()
     {
         ExpressionsScript = GameObject.Find("Puffy").GetComponent<Expressions>();
+		CharacterControlerScript = GameObject.Find("Puffy").GetComponent<CharacterControler>();
     }
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ExpressionsScript.DisableFace();
-    }
+		if (CharacterControlerScript.PuffyState != CharacterControler.state.Fly)
+		{
+			CharacterControlerScript.PuffyState = CharacterControler.state.Fly;
+
+
+
+		}
+
+	}
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,10 +33,16 @@ public class FlyStartState : StateMachineBehaviour
     //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+       if(CharacterControlerScript.PuffyState != CharacterControler.state.Fly)
+	   {
+			CharacterControlerScript.PuffyState = CharacterControler.state.Fly;
+
+
+
+	   }
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

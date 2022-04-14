@@ -5,16 +5,36 @@ using UnityEngine;
 public class SwimState : StateMachineBehaviour
 {
     private Expressions ExpressionsScript;
-
-    private void Awake()
+	private CharacterControler CharacterControlerScript;
+	
+	private void Awake()
     {
         ExpressionsScript = GameObject.Find("Puffy").GetComponent<Expressions>();
-    }
+		CharacterControlerScript = GameObject.Find("Puffy").GetComponent<CharacterControler>();
+	}
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ExpressionsScript.ChangeExpression();
         ExpressionsScript.EnableNormalEyes();
-    }
+		if (CharacterControlerScript.PuffyState != CharacterControler.state.Swim)
+		{
+			CharacterControlerScript.PuffyState = CharacterControler.state.Swim;
+
+
+
+		}
+	}
+
+	public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	{
+		if (CharacterControlerScript.PuffyState != CharacterControler.state.Swim)
+		{
+			CharacterControlerScript.PuffyState = CharacterControler.state.Swim;
+
+
+
+		}
+	}
 
 }

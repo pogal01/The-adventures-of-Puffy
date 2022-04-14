@@ -48,7 +48,7 @@ public class CharacterControler : MonoBehaviour
     }
 
 	
-    private state PuffyState;
+    public state PuffyState;
 
     private void Awake()
     {
