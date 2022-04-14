@@ -756,9 +756,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecce222ca599b8647a92c694805114bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume_Slider: {fileID: 0}
-  volume_Text_UI: {fileID: 0}
-  resolution_Dropdown: {fileID: 0}
+  volume_Slider: {fileID: 6742210893370235417}
+  volume_Text_UI: {fileID: 6192173677151976589}
+  resolution_Dropdown: {fileID: 8965879722263715328}
   game_Is_Paused: 0
   pause_Menu_UI: {fileID: 7571108602216105539}
   pause_Button_Objects: {fileID: 5694808756273034022}
@@ -952,7 +952,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1361,7 +1361,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3184,7 +3184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4556188559428573263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4303,7 +4303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4406532284775034957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5064,7 +5064,7 @@ GameObject:
   - component: {fileID: 8397862601919374479}
   - component: {fileID: 8397862601919374474}
   m_Layer: 5
-  m_Name: Menue Canvas
+  m_Name: Pause_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
