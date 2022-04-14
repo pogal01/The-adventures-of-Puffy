@@ -47,7 +47,7 @@ public class CharacterControler : MonoBehaviour
 
     }
 
-
+	
     private state PuffyState;
 
     private void Awake()
@@ -55,9 +55,11 @@ public class CharacterControler : MonoBehaviour
         DashSlider = GameObject.Find("DashCooldown");
     }
 
+	//Debug
+	private Collider2D LastCollider;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         PuffyState = state.Swim;
         Player = GameObject.Find("Puffy");
@@ -129,11 +131,11 @@ public class CharacterControler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D Col)
     {
         Debug.Log("Puffy has collided with" + Col.gameObject.tag);
-
+		LastCollider = Col;
         if (Col.tag == "Water")
         {
             PuffyState = state.Swim;
-            //Debug.log("State = " + PuffyState);
+			//Debug.log("State = " + PuffyState);
             Ridge.velocity = new Vector2(0, 0);
             AnimationScript.FlyAnimFin();
             AnimationScript.PlayerAnimator.SetTrigger("SwimStart");
@@ -142,17 +144,36 @@ public class CharacterControler : MonoBehaviour
             Debug.Log("Has entered water");
 
         }
+		/*
+		if (Col.tag == "Water" && Vert <= 0  )
+		{
+			Splash();
+
+		}
+		*/
 
 
 
 
+	}
 
-       
-    }
-
-    private void OnTriggerExit2D(Collider2D Col)
+	/*
+	void Splash()
 	{
-        if (Col.tag == "Water" && Ridge.velocity.y > 0)
+		MoveDown();
+		Debug.Log("Splash");
+
+
+
+	}
+	*/
+
+	
+
+	private void OnTriggerExit2D(Collider2D Col)
+	{
+		LastCollider = Col;
+		if (Col.tag == "Water" && Ridge.velocity.y > 0)
         {
             PuffyState = state.Fly;
             //Debug.log("State = " + PuffyState);
@@ -171,7 +192,7 @@ public class CharacterControler : MonoBehaviour
     void InvokeFunction(string Function, float TimeToWait)
     {
         Invoke(Function, TimeToWait);
-
+		
 
 
 
@@ -186,7 +207,7 @@ public class CharacterControler : MonoBehaviour
 		if (moveCounter == 0) {
             CancelInvoke("MoveUP");
         }
-
+		Debug.Log("MoveUP");
 
 
     }
@@ -527,7 +548,7 @@ public class CharacterControler : MonoBehaviour
         if(PuffyState == state.Swim)
         {
 
-
+			//GravityRange = 0;
 
             if (!IsSwimming)
             {
@@ -568,7 +589,7 @@ public class CharacterControler : MonoBehaviour
         else if(PuffyState == state.Fly)
         {
             IsSwimming = false;
-
+			//GravityRange = 0.2f;
             if (Input.GetKeyDown(KeyCode.Space))
             {
 
