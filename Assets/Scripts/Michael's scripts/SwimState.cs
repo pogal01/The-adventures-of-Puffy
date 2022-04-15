@@ -13,28 +13,28 @@ public class SwimState : StateMachineBehaviour
 		CharacterControlerScript = GameObject.Find("Puffy").GetComponent<CharacterControler>();
 	}
 
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        ExpressionsScript.ChangeExpression();
-        ExpressionsScript.EnableNormalEyes();
-		if (CharacterControlerScript.PuffyState != CharacterControler.state.Swim)
-		{
-			CharacterControlerScript.PuffyState = CharacterControler.state.Swim;
+    // public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    // {
+    //     ExpressionsScript.ChangeExpression();
+    //     ExpressionsScript.EnableNormalEyes();
+	// 	if (!CharacterControlerScript.swimming)
+	// 	{
+	// 		CharacterControlerScript.swimming = true;
 
 
 
-		}
-	}
+	// 	}
+	// }
 
-	public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-	{
-		if (CharacterControlerScript.PuffyState != CharacterControler.state.Swim)
-		{
-			CharacterControlerScript.PuffyState = CharacterControler.state.Swim;
+	// public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	// {
+	// 	if (!CharacterControlerScript.swimming)
+	// 	{
+	// 		CharacterControlerScript.swimming = true;
 
 
 
-		}
-	}
+	// 	}
+	// }
 
 }

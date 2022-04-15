@@ -22,7 +22,7 @@ public class AnimationStates : StateMachineBehaviour
     }
 	public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
-		if(CharacterControlerScript.PuffyState == CharacterControler.state.Fly)
+		if(!CharacterControlerScript.swimming)
 		{
 			if (CharacterControlerScript.LastCollider == GameObject.Find("Sky").GetComponent<BoxCollider2D>())
 			{
