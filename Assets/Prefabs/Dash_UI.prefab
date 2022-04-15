@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 6895824137021863848}
   - component: {fileID: 6895824137021863849}
   m_Layer: 5
-  m_Name: Dash Canvas
+  m_Name: Dash_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
