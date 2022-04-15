@@ -60,7 +60,7 @@ public class CharacterControler : MonoBehaviour
 	
 
 	//Debug
-	private Collider2D LastCollider;
+	public Collider2D LastCollider;
 
 	// Start is called before the first frame update
 	void Start()

@@ -41,7 +41,7 @@ public class PlayerAnimationControler : MonoBehaviour
         AlmostPuffedCol.GetComponent<PolygonCollider2D>().enabled = false;
         PuffedPuCol.GetComponent<PolygonCollider2D>().enabled = false;
 		NormalCollider = GameObject.Find("MainCollisionCopy");
-
+		NotGrounded();
 		//
 
 
@@ -118,6 +118,14 @@ public class PlayerAnimationControler : MonoBehaviour
         */
 
     }
+
+	public void StartSwim()
+	{
+		PlayerAnimator.SetTrigger("SwimStart");
+
+
+
+	}
 
 
    public void FlyAnimStart()
