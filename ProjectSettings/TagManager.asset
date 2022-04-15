@@ -7,6 +7,7 @@ TagManager:
   - Water
   - Sky
   - Ground
+  - Music
   layers:
   - Default
   - TransparentFX

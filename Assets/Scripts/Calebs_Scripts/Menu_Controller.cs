@@ -6,12 +6,12 @@ using TMPro;
 
 public class Menu_Controller : MonoBehaviour
 {
-    [SerializeField] private Slider volume_Slider = null;
-    [SerializeField] private TMP_Text volume_Text_UI = null;
-
     public TMP_Dropdown resolution_Dropdown;
 
     Resolution[] resolutions;
+
+    [SerializeField] private Slider volume_Slider = null;
+    [SerializeField] private TMP_Text volume_Text_UI = null;
 
     public bool game_Is_Paused = false;
     public GameObject pause_Menu_UI;
@@ -20,8 +20,8 @@ public class Menu_Controller : MonoBehaviour
 
     public void Start()
     {
-        Load_Values();
         Get_Resolutions();
+        Load_Values();
     }
 
     public void Update()
@@ -37,21 +37,6 @@ public class Menu_Controller : MonoBehaviour
                 Pause();
             }
         }
-    }
-
-    //---------- VOLUME --------------
-
-    public void Volume_Slider(float volume)
-    {
-        Debug.Log(volume);
-        volume_Text_UI.text = (volume*100).ToString("0");
-    }
-
-    public void Save_Volume_Button()
-    {
-        float volume_Value = volume_Slider.value;
-        PlayerPrefs.SetFloat("Game_Volume", volume_Value);
-        Load_Values();
     }
 
     //----------- GRAPHICS -------------
@@ -100,6 +85,29 @@ public class Menu_Controller : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
+    //---------- VOLUME --------------
+
+    public void Volume_Slider(float volume)
+    {
+        Debug.Log(volume);
+        volume_Text_UI.text = (volume * 100).ToString("0");
+    }
+
+    public void Save_Volume_Button()
+    {
+        float volume_Value = volume_Slider.value;
+        PlayerPrefs.SetFloat("Game_Volume", volume_Value);
+        Load_Values();
+    }
+
+    public void Load_Values()
+    {
+        float volume_Value = PlayerPrefs.GetFloat("Game_Volume");
+        volume_Slider.value = volume_Value;
+        AudioListener.volume = volume_Value;
+    }
+
+
     //-------------- PAUSE --------------
     public void Resume()
     {
@@ -132,14 +140,4 @@ public class Menu_Controller : MonoBehaviour
         pause_Button_Objects.SetActive(true);
         settings_Objects.SetActive(false);
     }
-
-    void Load_Values()
-    {
-        float volume_Value = PlayerPrefs.GetFloat("Game_Volume");
-        volume_Slider.value = volume_Value;
-        AudioListener.volume = volume_Value;
-    }
-
-
-
 }
