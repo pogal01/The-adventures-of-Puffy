@@ -8054,7 +8054,7 @@ Transform:
   m_LocalScale: {x: 159, y: 67.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &97702137
 BoxCollider2D:
@@ -8233,7 +8233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2434901292394098342, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2434901292394098342, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48130,7 +48130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6671415100259270554, guid: 0e5b12b56c3c66e428382df17338265d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6671415100259270554, guid: 0e5b12b56c3c66e428382df17338265d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48195,7 +48195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8397862601919374478, guid: 7a1dc1673366a6241be1c57e6175eb6c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8397862601919374478, guid: 7a1dc1673366a6241be1c57e6175eb6c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -51896,7 +51896,7 @@ GameObject:
   - component: {fileID: 1655454973}
   - component: {fileID: 1655454972}
   m_Layer: 5
-  m_Name: Static_Canvas
+  m_Name: Tutorial_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51978,7 +51978,7 @@ RectTransform:
   - {fileID: 563506655}
   - {fileID: 1003091343}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -93662,7 +93662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6895824137021863854, guid: 6a609f6fcc8a52f4aa232151fffe023f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6895824137021863854, guid: 6a609f6fcc8a52f4aa232151fffe023f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -93783,5 +93783,5 @@ Transform:
   - {fileID: 1706820118}
   - {fileID: 41518364}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
