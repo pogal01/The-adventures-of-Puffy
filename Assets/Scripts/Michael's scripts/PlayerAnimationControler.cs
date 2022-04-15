@@ -30,7 +30,7 @@ public class PlayerAnimationControler : MonoBehaviour
         DashSlider = GameObject.Find("DashCooldown");
         Player = GameObject.Find("Puffy");
         PlayerAnimator = Player.GetComponent<Animator>();
-		HopCollider = GameObject.Find("HopCollision");
+		HopCollider = GameObject.Find("HopCollider");
 
 		DashSlider.SetActive(false);
         //Colliders
