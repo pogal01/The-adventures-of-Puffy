@@ -5,6 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Manager : MonoBehaviour
 {
+    GameObject Button;
+
+    public int sceneNumber;
+    public static int previousScene;
+    public int oldPreviousScene;
+
+    public void Start()
+    {
+        oldPreviousScene = previousScene;
+        previousScene = SceneManager.GetActiveScene().buildIndex;
+
+        //Button = GameObject.FindGameObjectWithTag("Credits Back");
+    }
+
     public void Tutorial()
     {
         Debug.Log("Switching to Tutorial");
@@ -37,14 +51,28 @@ public class Scene_Manager : MonoBehaviour
 
     public void Settings()
     {
-        Debug.Log("Switching to Setting");
-        SceneManager.LoadScene("Settings_S");
+        if (oldPreviousScene == 0)
+        {
+            Debug.Log("Switching to Setting");
+            SceneManager.LoadScene("Settings_S");
+        }
+        else if (oldPreviousScene == 1)
+        {
+            Debug.Log("Switching to Setting");
+            SceneManager.LoadScene("Settings_S");
+        }
+        else if (oldPreviousScene == 6)
+        {
+            Debug.Log("Switching to Main Menu");
+            SceneManager.LoadScene("Main_Menu_S");
+        }
     }
-    
+
     public void Credits()
     {
         Debug.Log("Switching to Credits");
         SceneManager.LoadScene("Credits_S");
+        
     }
 
     public void Quit()
@@ -53,5 +81,5 @@ public class Scene_Manager : MonoBehaviour
         Application.Quit();
     }
 
-
+    
 }

@@ -8,6 +8,7 @@ TagManager:
   - Sky
   - Ground
   - Music
+  - Credits Back
   layers:
   - Default
   - TransparentFX
