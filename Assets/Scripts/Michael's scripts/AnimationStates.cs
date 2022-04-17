@@ -9,6 +9,7 @@ public class AnimationStates : StateMachineBehaviour
 	private CharacterControler CharacterControlerScript;
 	private PlayerAnimationControler Animationscript;
 
+
 	private void Awake()
     {
         ExpressionsScript = GameObject.Find("Puffy").GetComponent<Expressions>();

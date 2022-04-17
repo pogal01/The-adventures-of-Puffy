@@ -120,7 +120,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2434901291896107409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 2434901292394098333}
   - component: {fileID: 2434901292394098330}
   - component: {fileID: 2434901292394098331}
+  - component: {fileID: 562745314}
   m_Layer: 0
   m_Name: Puffy
   m_TagString: Player
@@ -674,7 +675,7 @@ Transform:
   m_GameObject: {fileID: 2434901292394098341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 3.18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.063125, z: 1}
   m_Children:
   - {fileID: 7994569820101244981}
   - {fileID: 2434901293451379343}
@@ -695,6 +696,7 @@ Transform:
   - {fileID: 2434901292174058108}
   - {fileID: 2434901292498027211}
   - {fileID: 2434901293848575906}
+  - {fileID: 537817265694123250}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -761,7 +763,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0be5da2d008648e429ce966dea83052c, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -828,6 +830,8 @@ MonoBehaviour:
   FlapIntival: 0
   BubbleCooldown: 0
   GravityRange: 2
+  PuffyState: 0
+  LastCollider: {fileID: 0}
 --- !u!50 &2434901292394098330
 Rigidbody2D:
   serializedVersion: 4
@@ -844,7 +848,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 178d1d7c8d4de214880bfae13ff9636e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -858,7 +862,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 2434901292394098341}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 178d1d7c8d4de214880bfae13ff9636e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -918,6 +922,22 @@ PolygonCollider2D:
       - {x: 1.11, y: -0.65}
       - {x: 1.23, y: -0.57}
       - {x: 1.35, y: -0.44}
+--- !u!58 &562745314
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2434901292394098341}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1 &2434901292420608839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,7 +2405,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2434901293822439023}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2534,6 +2554,105 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3952124081877282918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537817265694123250}
+  - component: {fileID: 6049016994882763312}
+  m_Layer: 0
+  m_Name: HopCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537817265694123250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3952124081877282918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2434901292394098342}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &6049016994882763312
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3952124081877282918}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 178d1d7c8d4de214880bfae13ff9636e, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6, y: 6}
+    newSize: {x: 6, y: 6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.25, y: -0.28}
+      - {x: 1.3199999, y: -0.21}
+      - {x: 1.35, y: -0.16}
+      - {x: 1.36, y: -0.02}
+      - {x: 1.36, y: -0.01}
+      - {x: 1.35, y: 0.19}
+      - {x: 1.3399999, y: 0.29}
+      - {x: 1.17, y: 0.42}
+      - {x: 0.96, y: 0.38}
+      - {x: 0.90999997, y: 0.41}
+      - {x: 0.69, y: 0.45999998}
+      - {x: 0.24, y: 0.47}
+      - {x: 0.02, y: 0.45}
+      - {x: -0.14999999, y: 0.53999996}
+      - {x: -0.35, y: 0.61}
+      - {x: -0.59, y: 0.62}
+      - {x: -0.63, y: 0.57}
+      - {x: -0.62, y: 0.52}
+      - {x: -0.55, y: 0.39}
+      - {x: -0.61, y: 0.39}
+      - {x: -0.9, y: 0.32999998}
+      - {x: -0.98999995, y: 0.39}
+      - {x: -1.22, y: 0.65999997}
+      - {x: -1.24, y: 0.65999997}
+      - {x: -1.27, y: 0.63}
+      - {x: -1.28, y: 0.41}
+      - {x: -1.3199999, y: 0.04}
+      - {x: -1.39, y: -0.22999999}
+      - {x: -1.39, y: -0.25}
+      - {x: -1.37, y: -0.26999998}
+      - {x: -1.24, y: -0.19999999}
+      - {x: -1.11, y: -0.12}
+      - {x: -0.94, y: -0.11}
+      - {x: -0.81, y: -0.19}
+      - {x: -0.65, y: -0.26}
+      - {x: -0.48999998, y: -0.31}
+      - {x: -0.17999999, y: -0.32}
+      - {x: 0.04, y: -0.35999998}
+      - {x: 0.26999998, y: -0.37}
+      - {x: 0.48999998, y: -0.37}
+      - {x: 0.48999998, y: -0.35999998}
+      - {x: 0.78, y: -0.37}
+      - {x: 1.05, y: -0.35}
 --- !u!1 &6623581814610288650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,7 +2664,7 @@ GameObject:
   - component: {fileID: 7994569820101244981}
   - component: {fileID: 8455563252050856555}
   m_Layer: 0
-  m_Name: Main Collision
+  m_Name: MainCollisionCopy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
