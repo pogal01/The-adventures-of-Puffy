@@ -194,7 +194,7 @@ public class PlayerAnimationControler : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		if(CharScript.PuffyState == CharacterControler.state.Swim)
+		if(CharScript.swimming == true)
 		{
 
 			if (Input.GetKeyDown(KeyCode.F))

@@ -135,7 +135,8 @@ public class CharacterControler : MonoBehaviour
         {
             Debug.Log("in water!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             swimming = true;
-			Ridge.gravityScale = 0;
+            AnimationScript.PlayerAnimator.SetBool("IsInAir", false);
+            Ridge.gravityScale = 0;
 
             AnimationScript.FlyAnimFin();
             AnimationScript.PlayerAnimator.ResetTrigger("StartFlying");
@@ -160,6 +161,7 @@ public class CharacterControler : MonoBehaviour
         {
             Debug.Log("left water!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             swimming = false;
+            AnimationScript.PlayerAnimator.SetBool("IsInAir", true);
             Ridge.gravityScale = GravityRange;
             Ridge.velocity = new Vector2(Ridge.velocity.x, Ridge.velocity.y * 1.2f);
 
