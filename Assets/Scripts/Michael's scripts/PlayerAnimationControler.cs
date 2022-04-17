@@ -145,7 +145,7 @@ public class PlayerAnimationControler : MonoBehaviour
    public void FlyAnimStart()
    {
         PlayerAnimator.SetTrigger("StartFlying");
-        
+        ChangeCollision(NormalCollider.GetComponent<PolygonCollider2D>());
    }
 
    public void FlyAnimFin()
