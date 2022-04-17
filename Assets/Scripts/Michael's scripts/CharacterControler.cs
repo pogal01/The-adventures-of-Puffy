@@ -28,6 +28,9 @@ public class CharacterControler : MonoBehaviour
     private bool IsDashing;
     private Vector2 Direction;
     public float FlyForce;
+	private bool IsFlying;
+
+
 
     [HideInInspector] public float FlapTimer;
     [HideInInspector] public float FlapIntival;
@@ -113,7 +116,12 @@ public class CharacterControler : MonoBehaviour
 
     }
 
-    void Flap()
+	private void OnMouseDown()
+	{
+		
+	}
+
+	void Flap()
     {
        
         
@@ -213,6 +221,7 @@ public class CharacterControler : MonoBehaviour
 			AnimationScript.PlayerAnimator.ResetTrigger("SwimStart");
 			AnimationScript.PlayerAnimator.ResetTrigger("EndFlying");
 			StartCoroutine(SpinToTheRight());
+			AnimationScript.ChangeCollision(GameObject.Find("MainCollisionCopy").GetComponent<PolygonCollider2D>());
         }
     }
    
@@ -307,7 +316,7 @@ public class CharacterControler : MonoBehaviour
             {
                 Ridge.velocity = new Vector2(Hoz, Vert) * Speed;
 
-
+				
 
             }
 
@@ -474,6 +483,7 @@ public class CharacterControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 		if(Hoz != 0)
 		{
 			AnimationScript.PlayerAnimator.SetBool("IsMoving", true);
@@ -592,7 +602,7 @@ public class CharacterControler : MonoBehaviour
 
         if(PuffyState == state.Swim)
         {
-
+			IsFlying = false;
 			//GravityRange = 0;
 
             if (!IsSwimming)
@@ -633,20 +643,40 @@ public class CharacterControler : MonoBehaviour
         }
         else if(PuffyState == state.Fly)
         {
+			IsFlying = true;
             IsSwimming = false;
 			//GravityRange = 0.2f;
             if (Input.GetKeyDown(KeyCode.Space))
             {
 
                 Flap();
-
+				
 
 
 
             }
+			
 
 
         }
+
+		if (IsFlying)
+		{
+			AnimationScript.PlayerAnimator.SetBool("IsInAir", true);
+
+
+
+
+		}
+		else
+		{
+			AnimationScript.PlayerAnimator.SetBool("IsInAir",false);
+
+
+
+
+		}
+
 
 
     }

@@ -8082,6 +8082,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!60 &274605572 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2434901293822439009, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+  m_PrefabInstance: {fileID: 502396983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337643662
 GameObject:
   m_ObjectHideFlags: 0
@@ -8227,6 +8232,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2434901292394098328, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
+      propertyPath: Dash
+      value: 
+      objectReference: {fileID: 274605572}
     - target: {fileID: 2434901292394098341, guid: 6fb6d86a193d82c4ba0495f74fbdb69c, type: 3}
       propertyPath: m_Name
       value: Puffy
