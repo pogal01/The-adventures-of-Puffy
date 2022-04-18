@@ -39,8 +39,8 @@ public class SharkAnimationControler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            HeadAnim.SetTrigger("Closed Mouth");
-            BodyAnim.SetTrigger("Closed Mouth");
+            HeadAnim.SetTrigger("Close Mouth");
+            BodyAnim.SetTrigger("Close Mouth");
 
 
 
