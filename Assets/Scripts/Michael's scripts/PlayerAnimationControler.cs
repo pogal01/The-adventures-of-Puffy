@@ -8,14 +8,20 @@ public class PlayerAnimationControler : MonoBehaviour
     private GameObject Player;
     private bool PuffupB = false;
     private Expressions ExpressionsScript;
+	private CharacterControler CharScript;
+
 
     //Collision boxes for Puffy
     private GameObject StartPuffCol;
     private GameObject AlmostPuffedCol;
     private GameObject PuffedPuCol;
 	private GameObject NormalCollider;
-	private GameObject HopCollider;
 
+	private GameObject DashCol1;
+	private GameObject DashCol2;
+
+	private GameObject HopCollider;
+	
 
 	// Start is called before the first frame update
 
@@ -27,7 +33,8 @@ public class PlayerAnimationControler : MonoBehaviour
 		
 
         ExpressionsScript = gameObject.GetComponent<Expressions>();
-        DashSlider = GameObject.Find("DashCooldown");
+		CharScript = gameObject.GetComponent<CharacterControler>();
+		DashSlider = GameObject.Find("DashCooldown");
         Player = GameObject.Find("Puffy");
         PlayerAnimator = Player.GetComponent<Animator>();
 		HopCollider = GameObject.Find("HopCollider");
@@ -37,7 +44,14 @@ public class PlayerAnimationControler : MonoBehaviour
         StartPuffCol = GameObject.Find("StartPuffCol");
         AlmostPuffedCol = GameObject.Find("AlmostPuffedCol");
         PuffedPuCol = GameObject.Find("PuffedupCol");
-        StartPuffCol.GetComponent<PolygonCollider2D>().enabled = false;
+
+        DashCol1 = GameObject.Find("DashColPt1");
+		DashCol2 = GameObject.Find("DashCol");
+
+		
+
+
+		StartPuffCol.GetComponent<PolygonCollider2D>().enabled = false;
         AlmostPuffedCol.GetComponent<PolygonCollider2D>().enabled = false;
         PuffedPuCol.GetComponent<PolygonCollider2D>().enabled = false;
 		NormalCollider = GameObject.Find("MainCollisionCopy");
@@ -78,7 +92,7 @@ public class PlayerAnimationControler : MonoBehaviour
     }
 
 
-    void ChangeCollision(PolygonCollider2D Col)
+    public void ChangeCollision(PolygonCollider2D Col)
     {
 
         Player.GetComponent<PolygonCollider2D>().points = Col.points;
@@ -131,7 +145,7 @@ public class PlayerAnimationControler : MonoBehaviour
    public void FlyAnimStart()
    {
         PlayerAnimator.SetTrigger("StartFlying");
-        
+        ChangeCollision(NormalCollider.GetComponent<PolygonCollider2D>());
    }
 
    public void FlyAnimFin()
@@ -154,8 +168,10 @@ public class PlayerAnimationControler : MonoBehaviour
     {
         PlayerAnimator.SetTrigger("ActivatedDash");
         DashSlider.SetActive(true);
-
-    }
+		StartCoroutine(CheekyWorkaround("ChangeCollision", 0.2f, DashCol1.GetComponent<PolygonCollider2D>()));
+		StartCoroutine(CheekyWorkaround("ChangeCollision", 0.6f, DashCol2.GetComponent<PolygonCollider2D>()));
+		StartCoroutine(CheekyWorkaround("ChangeCollision", 1.2f, NormalCollider.GetComponent<PolygonCollider2D>()));
+	}
 
     
 	public void ISGrounded()
@@ -169,7 +185,7 @@ public class PlayerAnimationControler : MonoBehaviour
 	public void NotGrounded()
 	{
 		PlayerAnimator.SetBool("Grounded", false);
-		ChangeCollision(Player.GetComponent<PolygonCollider2D>());
+		ChangeCollision(NormalCollider.GetComponent<PolygonCollider2D>());
 
 
 	}
@@ -178,12 +194,20 @@ public class PlayerAnimationControler : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            PuffupAnim();
+		if(CharScript.swimming == true)
+		{
+
+			if (Input.GetKeyDown(KeyCode.F))
+			{
+				PuffupAnim();
 
 
-        }
+			}
+
+
+
+		}
+    
 
         if (PuffupB)
         {
