@@ -136,7 +136,7 @@ public class SharkAI : MonoBehaviour
     void ChasePuffy()
     {
         SharkState = State.ChasePuffy;
-        TargetObject = 
+        TargetObject = Puffy;
 
 
     }
