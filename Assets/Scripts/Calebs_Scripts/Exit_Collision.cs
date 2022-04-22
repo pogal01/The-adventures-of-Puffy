@@ -18,7 +18,7 @@ public class Exit_Collision : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Collision with Exit confirmed");
             Debug.Log("Heading to Scene" + WhichScene);
