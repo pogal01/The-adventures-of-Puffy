@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4519648859303820178}
   - component: {fileID: 4519648859303820179}
   - component: {fileID: 4519648859303820176}
-  - component: {fileID: 3169421687375001329}
   m_Layer: 0
   m_Name: Head
-  m_TagString: SharkHead
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,32 +102,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &3169421687375001329
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4519648859303820181}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -6.974287, y: -0.3626454}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 10, y: 10}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.121443, y: 4.3954873}
-  m_EdgeRadius: 0
 --- !u!1 &4519648859872932771
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +270,7 @@ MonoBehaviour:
   Speed: 5
   RaycastOffset: {x: 0, y: 0, z: 0}
   RaycastOffset2: {x: 0, y: 0, z: 0}
-  RaycastDistance: 100
+  RaycastDistance: 0
   RaycastStartPoint: {x: 0, y: 0, z: 0}
 --- !u!50 &4519648859999664361
 Rigidbody2D:
