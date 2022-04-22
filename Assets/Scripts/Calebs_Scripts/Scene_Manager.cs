@@ -1,46 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Scene_Manager : MonoBehaviour
 {
-    GameObject Button;
+    public static Scene_Manager SM;
+
+    public GameObject Loading_Panel;
+    public Slider slider;
+    public TMP_Text progress_Text;
 
     public int sceneNumber;
     public static int previousScene;
     public int oldPreviousScene;
 
+
+    public void Load_Level(int scene_Index)
+    {
+        
+        StartCoroutine(Load_Asynchronously(scene_Index));
+    }
+
+    public IEnumerator Load_Asynchronously(int scene_Index)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene_Index);
+
+        Loading_Panel.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress);
+
+            Debug.Log(progress);
+
+            slider.value = progress;
+            progress_Text.text = progress * 100f + "%";
+
+            yield return null;
+        }
+
+        while (operation.isDone)
+        {
+            Loading_Panel.SetActive(false);
+        }
+    }
+
     public void Start()
     {
+        
         oldPreviousScene = previousScene;
         previousScene = SceneManager.GetActiveScene().buildIndex;
-
-        //Button = GameObject.FindGameObjectWithTag("Credits Back");
-    }
-
-    public void Tutorial()
-    {
-        Debug.Log("Switching to Tutorial");
-        SceneManager.LoadScene("Tutorial_S");
-    }
-    
-    public void Water_Level()
-    {
-        Debug.Log("Switching to Underwater Level");
-        SceneManager.LoadScene("Water_Level_S");
-    }
-    
-    public void Land_Level()
-    {
-        Debug.Log("Switching to Land Level");
-        SceneManager.LoadScene("Land_Level_S");
-    }
-    
-    public void Final_Level()
-    {
-        Debug.Log("Switching to Final Level");
-        SceneManager.LoadScene("Final_Level_S");
     }
 
     public void Main_Menu()
@@ -72,7 +84,7 @@ public class Scene_Manager : MonoBehaviour
     {
         Debug.Log("Switching to Credits");
         SceneManager.LoadScene("Credits_S");
-        
+
     }
 
     public void Quit()
@@ -81,5 +93,5 @@ public class Scene_Manager : MonoBehaviour
         Application.Quit();
     }
 
-    
+
 }
