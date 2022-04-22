@@ -44,14 +44,6 @@ public class CharacterControler : MonoBehaviour
     private int moveCounter;
     public bool swimming = true;
 
-    public int MaxHealth;
-    private int CurrentHealth;
-
-
-    //Shark
-    private SharkAnimationControler SharkAimationScript;
-
-
 
     private void Awake()
     {
@@ -68,7 +60,6 @@ public class CharacterControler : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        CurrentHealth = MaxHealth;
         //swimming = true;
         Player = GameObject.Find("Puffy");
         AnimationScript = Player.GetComponent<PlayerAnimationControler>();
@@ -117,14 +108,6 @@ public class CharacterControler : MonoBehaviour
 
     }
 
-    void TakeDamage(int DamageAmount)
-    {
-
-
-
-
-    }
-
     void Flap()
     {
        
@@ -161,16 +144,6 @@ public class CharacterControler : MonoBehaviour
             ExpressionsScript.ChangeExpression();
 
         }
-        if(Col.tag == "SharkHead")
-        {
-            SharkAimationScript = Col.gameObject.GetComponentInParent<SharkAnimationControler>();
-            SharkAimationScript.OpenMouth();
-
-
-
-        }
-
-
 		/*
 		if (Col.tag == "Water" && Vert <= 0  )
 		{
@@ -196,18 +169,6 @@ public class CharacterControler : MonoBehaviour
             AnimationScript.PlayerAnimator.ResetTrigger("SwimStart");
 			AnimationScript.PlayerAnimator.ResetTrigger("EndFlying");
         }
-
-
-        if (Col.tag == "SharkHead")
-        {
-            SharkAimationScript = Col.gameObject.GetComponentInParent<SharkAnimationControler>();
-            SharkAimationScript.CloseMouth();
-
-
-
-        }
-
-
     }
 
 	/*

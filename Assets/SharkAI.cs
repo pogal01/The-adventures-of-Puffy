@@ -137,16 +137,13 @@ public class SharkAI : MonoBehaviour
     {
         SharkState = State.ChasePuffy;
         TargetObject = Puffy;
-        Rotation = transform.rotation.eulerAngles;
-        Speed = 10;
 
-        CheckSharkIsNotUpsidedown();
 
     }
     void WaypointMode()
     {
         SharkState = State.WaypointMode;
-        TargetObject = Waypoints[WaypointOrder];
+
 
     }
     
@@ -161,16 +158,9 @@ public class SharkAI : MonoBehaviour
         
         float RotationZ = Mathf.Clamp(ThisObject.rotation.z, -270f, -90f);
 
-      
-       transform.position = Vector2.MoveTowards(transform.position, TargetObject.transform.position, Speed * Time.deltaTime); //Moves the shark
-
-        if(SharkState == State.ChasePuffy)
+      if(SharkState == State.WaypointMode)
         {
-            transform.right = TargetObject.transform.position - transform.position;
-            RotationToChangeTo = transform.right = TargetObject.transform.position - transform.position;
-            
-
-
+            transform.position = Vector2.MoveTowards(transform.position, WhereToGo, Speed * Time.deltaTime); //Moves the shark
 
 
         }
@@ -189,7 +179,7 @@ public class SharkAI : MonoBehaviour
                 if (vision.transform.tag == "Player")
                 {
                     Debug.Log("Shark can see puffy");
-                    ChasePuffy();
+
 
 
                 }

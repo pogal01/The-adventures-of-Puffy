@@ -25,26 +25,26 @@ public class SharkAnimationControler : MonoBehaviour
 
     }
 
-    public void OpenMouth()
-    {
-        HeadAnim.SetTrigger("Open Mouth");
-        BodyAnim.SetTrigger("Open Mouth");
-
-    }
-
-    public void CloseMouth()
-    {
-
-        HeadAnim.SetTrigger("Close Mouth");
-        BodyAnim.SetTrigger("Close Mouth");
-
-
-    }
-
     // Update is called once per frame
     void Update()
     {
- 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            HeadAnim.SetTrigger("Open Mouth");
+            BodyAnim.SetTrigger("Open Mouth");
+
+
+
+
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            HeadAnim.SetTrigger("Close Mouth");
+            BodyAnim.SetTrigger("Close Mouth");
+
+
+
+        }
 
        
 
