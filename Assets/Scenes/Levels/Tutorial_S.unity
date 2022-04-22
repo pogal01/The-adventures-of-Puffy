@@ -78900,7 +78900,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SharkID: 1
   Waypoints: []
-  Speed: 5
+  Speed: 8
+  RaycastOffset: {x: 0, y: 0, z: 0}
+  RaycastOffset2: {x: 0, y: 0, z: 0}
+  RaycastDistance: 0
+  RaycastStartPoint: {x: 0, y: 0, z: 0}
+  SharkState: 0
 --- !u!60 &1973430894
 PolygonCollider2D:
   m_ObjectHideFlags: 0
