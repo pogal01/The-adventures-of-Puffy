@@ -19,7 +19,7 @@ public class Credits_Scroll : MonoBehaviour
     {
         delay_Time -= Time.deltaTime;
 
-        if (delay_Time < 0)
+        if (delay_Time < 0 && text_Elements[0].transform.localPosition.y <= 4600)
         {
             foreach (TMP_Text Text in text_Elements)
             {
@@ -34,7 +34,7 @@ public class Credits_Scroll : MonoBehaviour
             }
         }
 
-        if (text_Elements[0].transform.localPosition.y >= -2160)
+        if (text_Elements[0].transform.localPosition.y >= -235 && text_Elements[0].transform.localPosition.y <= 4600)
         {
             object_Elements[0].transform.Translate(Vector3.up * scroll_Speed);
         }
