@@ -45,7 +45,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -264,9 +264,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7866996188899535268}
   - component: {fileID: 5986099055224856188}
+  - component: {fileID: 8125100679918806090}
   m_Layer: 0
   m_Name: Audio_Manager
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,5 +302,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music_Source: {fileID: 1040736810}
   effect_Scource: {fileID: 2752770957655520272}
-  volume_Slider: {fileID: 0}
-  volume_Text_UI: {fileID: 0}
+--- !u!114 &8125100679918806090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609802360925092388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee071cc6698f1f45ad3c9f364cf7a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

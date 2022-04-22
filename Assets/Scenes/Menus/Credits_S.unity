@@ -287,7 +287,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1673832143}
+      - m_Target: {fileID: 1962220994}
         m_TargetAssemblyTypeName: Scene_Manager, Assembly-CSharp
         m_MethodName: Settings
         m_Mode: 1
@@ -1542,39 +1542,38 @@ MonoBehaviour:
     purus auctor leo, id feugiat risus arcu non nulla. Duis venenatis ut erat ultrices
     condimentum.
 
-    
 
-    Curabitur hendrerit, dui sed porta finibus, neque est
-    eleifend ipsum, ut viverra risus massa et velit. Nulla lacinia lorem sagittis
-    massa faucibus, vitae ultricies velit pellentesque. In et posuere ex. Nam sit
-    amet risus quis sapien mollis facilisis ut id felis. Maecenas ac enim ac arcu
-    viverra interdum et a purus. Nulla interdum ipsum non felis condimentum finibus.
-    Vestibulum eros dolor, tincidunt nec lobortis ac, volutpat et felis. Sed dignissim
-    ultrices sem, tristique interdum arcu venenatis non. Nam varius ante ut felis
-    rhoncus, faucibus mattis dui dapibus. Duis sed erat a orci semper rutrum. Nam
-    dictum volutpat tincidunt. Proin eget orci nec justo eleifend varius vitae in
-    justo. Integer in dolor mi.
 
-    
+    Curabitur hendrerit, dui sed porta finibus, neque est eleifend
+    ipsum, ut viverra risus massa et velit. Nulla lacinia lorem sagittis massa faucibus,
+    vitae ultricies velit pellentesque. In et posuere ex. Nam sit amet risus quis
+    sapien mollis facilisis ut id felis. Maecenas ac enim ac arcu viverra interdum
+    et a purus. Nulla interdum ipsum non felis condimentum finibus. Vestibulum eros
+    dolor, tincidunt nec lobortis ac, volutpat et felis. Sed dignissim ultrices sem,
+    tristique interdum arcu venenatis non. Nam varius ante ut felis rhoncus, faucibus
+    mattis dui dapibus. Duis sed erat a orci semper rutrum. Nam dictum volutpat tincidunt.
+    Proin eget orci nec justo eleifend varius vitae in justo. Integer in dolor mi.
 
-    Sed vehicula et velit nec varius. Etiam
-    vitae leo non orci mattis tempus. Cras a mauris fringilla, ornare nunc quis,
-    accumsan augue. Aenean sollicitudin lorem dolor, eu varius velit consectetur
-    nec. Aliquam eget neque nec lorem molestie sagittis. Nunc vitae est rutrum, euismod
-    eros quis, sollicitudin libero. Phasellus nec enim dapibus sapien aliquet consequat
-    eu nec dui. Nam sed commodo ipsum.
 
-    
 
-    Nulla vel nulla at nunc efficitur
-    suscipit non ut enim. Sed efficitur est a ipsum rutrum condimentum. Fusce convallis
-    lorem tincidunt tempor varius. Praesent laoreet arcu volutpat, pretium felis
-    et, posuere magna. Fusce feugiat nisl eu tortor volutpat, et semper arcu tempor.
-    Donec ut lacus finibus, faucibus leo id, efficitur neque. Integer eu dignissim
-    arcu. Proin mollis, lectus eget rutrum rhoncus, nulla lorem tempor eros, vel
-    volutpat eros risus sed erat. Morbi malesuada mauris ac eleifend tristique. Morbi
-    commodo tincidunt augue nec posuere. Aenean nec velit eget tellus aliquam convallis
-    eget vitae lectus. Phasellus vitae varius lacus.'
+    Sed
+    vehicula et velit nec varius. Etiam vitae leo non orci mattis tempus. Cras a
+    mauris fringilla, ornare nunc quis, accumsan augue. Aenean sollicitudin lorem
+    dolor, eu varius velit consectetur nec. Aliquam eget neque nec lorem molestie
+    sagittis. Nunc vitae est rutrum, euismod eros quis, sollicitudin libero. Phasellus
+    nec enim dapibus sapien aliquet consequat eu nec dui. Nam sed commodo ipsum.
+
+
+
+    Nulla
+    vel nulla at nunc efficitur suscipit non ut enim. Sed efficitur est a ipsum rutrum
+    condimentum. Fusce convallis lorem tincidunt tempor varius. Praesent laoreet
+    arcu volutpat, pretium felis et, posuere magna. Fusce feugiat nisl eu tortor
+    volutpat, et semper arcu tempor. Donec ut lacus finibus, faucibus leo id, efficitur
+    neque. Integer eu dignissim arcu. Proin mollis, lectus eget rutrum rhoncus, nulla
+    lorem tempor eros, vel volutpat eros risus sed erat. Morbi malesuada mauris ac
+    eleifend tristique. Morbi commodo tincidunt augue nec posuere. Aenean nec velit
+    eget tellus aliquam convallis eget vitae lectus. Phasellus vitae varius lacus.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1601,7 +1600,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47
+  m_fontSize: 45.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2640,51 +2639,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1673832142
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1673832144}
-  - component: {fileID: 1673832143}
-  m_Layer: 0
-  m_Name: Scene_Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1673832143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673832142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb71f33a339ef44a74e287458c61d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNumber: 0
-  oldPreviousScene: 0
---- !u!4 &1673832144
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673832142}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1894489278}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739324149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3953,7 +3907,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -9, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -3963,7 +3917,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -8, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -3973,7 +3927,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -7, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -3983,7 +3937,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -6, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -3993,7 +3947,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -5, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4003,7 +3957,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -4, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4013,7 +3967,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -3, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4023,7 +3977,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -2, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4033,7 +3987,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -1, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4043,7 +3997,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 0, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4053,7 +4007,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 1, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4063,7 +4017,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 2, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4073,7 +4027,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 3, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4083,7 +4037,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 4, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4093,7 +4047,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 5, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4103,7 +4057,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 6, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4113,7 +4067,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 7, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4123,7 +4077,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 8, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -4133,7 +4087,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 44
@@ -4226,7 +4180,80 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1673832144}
+  - {fileID: 1962220995}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1962220993
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1894489278}
+    m_Modifications:
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311110, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: m_Name
+      value: Scene_Manager (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+--- !u!114 &1962220994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3712960221443311111, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+  m_PrefabInstance: {fileID: 1962220993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb71f33a339ef44a74e287458c61d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1962220995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+  m_PrefabInstance: {fileID: 1962220993}
+  m_PrefabAsset: {fileID: 0}

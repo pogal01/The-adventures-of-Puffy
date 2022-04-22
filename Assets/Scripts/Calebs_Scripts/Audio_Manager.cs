@@ -12,15 +12,15 @@ public class Audio_Manager : MonoBehaviour
 
     private void Awake()
     {
-        if (AM == null)
-        {
-            AM = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (AM == null)
+        //{
+        //    AM = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
 
         AudioListener.volume = PlayerPrefs.GetFloat("Game_Volume");
     }

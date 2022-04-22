@@ -89,7 +89,7 @@ public class Menu_Controller : MonoBehaviour
 
     public void Volume_Slider(float volume)
     {
-        Debug.Log(volume);
+        //Debug.Log(volume);
         volume_Text_UI.text = (volume * 100).ToString("0");
     }
 
