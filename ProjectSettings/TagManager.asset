@@ -11,6 +11,9 @@ TagManager:
   - Credits Back
   - SharkWaypoint1
   - SharkWaypoint2
+  - SharkWaypoint3
+  - SharkWaypoint4
+  - SharkWaypoint5
   layers:
   - Default
   - TransparentFX
