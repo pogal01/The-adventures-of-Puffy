@@ -15,6 +15,8 @@ public class SharkAI : MonoBehaviour
     private Vector3 Rotation;
     private Transform ThisObject;
     private Transform TheRotation;
+    private GameObject Puffy;
+
 
     private Vector3 RotationToChangeTo;
 
@@ -26,6 +28,18 @@ public class SharkAI : MonoBehaviour
     //Debug
     private GameObject TargetObject;
    
+
+    //States
+    public enum State
+    {
+        WaypointMode,
+        ChasePuffy
+
+
+    }
+
+    public State SharkState;
+
 
 
     void Start()
@@ -41,62 +55,60 @@ public class SharkAI : MonoBehaviour
         RotationToChangeTo = transform.right = TargetObject.transform.position - transform.position;
         Rotation = transform.rotation.eulerAngles;
         RaycastStartPoint = transform.position;
+        SharkState = State.WaypointMode;
+        Puffy = GameObject.Find("Puffy");
     }
 
     private void OnTriggerEnter2D(Collider2D Collision)
     {
         //Debug.Log("Shark has reached "+Collision.name);
 
-
-        if (Collision.tag == ("SharkWaypoint" + SharkID))
+        if(SharkState == State.WaypointMode)
         {
-            Debug.Log("Shark has collided with waypoint");
-            
-            //Rotation = transform.rotation.eulerAngles;
-            
-            if (WaypointOrder != AmountOfWaypoints-1)
+
+            if (Collision.tag == ("SharkWaypoint" + SharkID))
             {
-              WaypointOrder = ++WaypointOrder;
-                
-                WhereToGo = Waypoints[WaypointOrder].transform.position;
-                Debug.Log("Waypoint updated");
-                TargetObject = Waypoints[WaypointOrder];
-                transform.right = TargetObject.transform.position - transform.position;
-                RotationToChangeTo = transform.right = TargetObject.transform.position - transform.position;
-                Rotation = transform.rotation.eulerAngles;
-                CheckSharkIsNotUpsidedown();
+                Debug.Log("Shark has collided with waypoint");
+
+                //Rotation = transform.rotation.eulerAngles;
+
+                if (WaypointOrder != AmountOfWaypoints - 1)
+                {
+                    WaypointOrder = ++WaypointOrder;
+
+                    WhereToGo = Waypoints[WaypointOrder].transform.position;
+                    Debug.Log("Waypoint updated");
+                    TargetObject = Waypoints[WaypointOrder];
+                    transform.right = TargetObject.transform.position - transform.position;
+                    RotationToChangeTo = transform.right = TargetObject.transform.position - transform.position;
+                    Rotation = transform.rotation.eulerAngles;
+                    CheckSharkIsNotUpsidedown();
+                }
+                else
+                {
+
+                    WaypointOrder = 0;
+                    Debug.Log("Waypoint defaulted back to zero");
+                    WhereToGo = Waypoints[WaypointOrder].transform.position; // resets the loop
+                    TargetObject = Waypoints[WaypointOrder];
+                    transform.right = TargetObject.transform.position - transform.position;
+
+                    Rotation = transform.rotation.eulerAngles;
+                    CheckSharkIsNotUpsidedown();
+
+
+
+                }
+
+
+
+
             }
-            else
-            {
-
-                WaypointOrder = 0;
-                Debug.Log("Waypoint defaulted back to zero");
-                WhereToGo = Waypoints[WaypointOrder].transform.position; // resets the loop
-                TargetObject = Waypoints[WaypointOrder];
-                transform.right = TargetObject.transform.position - transform.position;
-                
-                Rotation = transform.rotation.eulerAngles;
-                CheckSharkIsNotUpsidedown();
-
-                
-
-            }
-            
-
-
-
-
-
-
-
-
-
-
 
 
 
         }
-
+   
 
 
 
@@ -121,8 +133,19 @@ public class SharkAI : MonoBehaviour
 
     }
         
+    void ChasePuffy()
+    {
+        SharkState = State.ChasePuffy;
+        TargetObject = 
 
-    
+
+    }
+    void WaypointMode()
+    {
+        SharkState = State.WaypointMode;
+
+
+    }
     
 
 
@@ -135,17 +158,23 @@ public class SharkAI : MonoBehaviour
         
         float RotationZ = Mathf.Clamp(ThisObject.rotation.z, -270f, -90f);
 
-      
-       transform.position = Vector2.MoveTowards(transform.position, WhereToGo, Speed * Time.deltaTime); //Moves the shark
+      if(SharkState == State.WaypointMode)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, WhereToGo, Speed * Time.deltaTime); //Moves the shark
+
+
+        }
+       
        
         //Raycast stuff
-        var Hits2D = Physics2D.RaycastAll(transform.position + RaycastOffset, TargetObject.transform.position, RaycastDistance);
-        Debug.DrawLine(transform.position + RaycastOffset2, TargetObject.transform.position + RaycastOffset + new Vector3(0, -RaycastDistance), Color.magenta);
+        var Hits2D = Physics2D.RaycastAll(transform.position + RaycastOffset2, TargetObject.transform.position);
+        Debug.DrawLine(transform.position + RaycastOffset2, TargetObject.transform.position + RaycastOffset, Color.magenta);
         foreach (var vision in Hits2D)
         {
 
             if(vision.transform.tag != "Ground")
             {
+                //Debug.Log("Not touching ground");
 
                 if (vision.transform.tag == "Player")
                 {
