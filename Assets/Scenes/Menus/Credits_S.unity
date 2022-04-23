@@ -1009,7 +1009,7 @@ MonoBehaviour:
   - {fileID: 630852330}
   - {fileID: 370089890}
   delay_Time: 1
-  scroll_Speed: 1.5
+  scroll_Speed: 1.8
 --- !u!1 &990222379
 GameObject:
   m_ObjectHideFlags: 0
