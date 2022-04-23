@@ -14,6 +14,8 @@ TagManager:
   - SharkWaypoint3
   - SharkWaypoint4
   - SharkWaypoint5
+  - SharkHead
+  - Shark
   layers:
   - Default
   - TransparentFX

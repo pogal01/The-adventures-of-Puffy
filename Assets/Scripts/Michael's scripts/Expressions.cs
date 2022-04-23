@@ -20,14 +20,15 @@ public class Expressions : MonoBehaviour
     public enum Eyes
     {
         Normal,
-        Happy
+        Happy,
+        Bambozled
     }
 
     public Faces Expression;
     public Eyes eyes;
 
-    private Faces CurrentFace;
-    private Eyes CurrentEyes;
+    public Faces CurrentFace;
+    public Eyes CurrentEyes;
 
     // Start is called before the first frame update
     void Start()
@@ -87,7 +88,16 @@ public class Expressions : MonoBehaviour
 
     }
 
+    public void EnableBambozledEyes()
+    {
+        DisableEyes();
+        ActivateEyes(TheEyes[4]);
+        ActivateEyes(TheEyes[5]);
 
+
+
+
+    }
     public void ChangeExpression()
     {
         switch (Expression)
@@ -132,6 +142,13 @@ public class Expressions : MonoBehaviour
                 ActivateEyes(TheEyes[3]);
                 CurrentEyes = eyes;
                 Debug.Log("Happy Eyes");
+                break;
+            case Eyes.Bambozled:
+                DisableEyes();
+                ActivateEyes(TheEyes[4]);
+                ActivateEyes(TheEyes[5]);
+                CurrentEyes = eyes;
+                Debug.Log("Death eyes");
                 break;
             default:
                 break;

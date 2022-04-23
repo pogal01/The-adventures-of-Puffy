@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterControler : MonoBehaviour
 {
@@ -44,9 +45,19 @@ public class CharacterControler : MonoBehaviour
     private int moveCounter;
     public bool swimming = true;
 
+    private bool Bambozled;
+
+    private Vector2 Spawnpoint;
+    private bool IsResetting;
+
+    //UI
+
     public int MaxHealth;
     private int CurrentHealth;
-
+    private Slider Healthbar;
+    [SerializeField] private Sprite[] UIFace;
+    private Image FaceUI;
+    private GameObject RestartText;
 
     //Shark
     private SharkAnimationControler SharkAimationScript;
@@ -56,6 +67,7 @@ public class CharacterControler : MonoBehaviour
     private void Awake()
     {
         DashSlider = GameObject.Find("DashCooldown");
+        RestartText = GameObject.Find("Restart Text");
     }
 
 	//Grounded stuff
@@ -68,19 +80,25 @@ public class CharacterControler : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        CurrentHealth = MaxHealth;
+        RestartText.SetActive(false);
+        Spawnpoint = transform.position;
         //swimming = true;
         Player = GameObject.Find("Puffy");
+        Ridge = Player.GetComponent<Rigidbody2D>();
         AnimationScript = Player.GetComponent<PlayerAnimationControler>();
         ExpressionsScript = Player.GetComponent<Expressions>();
-
-        Ridge = Player.GetComponent<Rigidbody2D>();
+        CurrentHealth = MaxHealth;
+        Healthbar = GameObject.Find("HPSlider").GetComponent<Slider>();
+        Healthbar.maxValue = MaxHealth;
+        Healthbar.value = MaxHealth;
         CurrentRotation = Player.transform.rotation;
         IsSwimming = false;
         //Debug.log(Player.transform.rotation);
         Direction = new Vector2(1, 0);
         BubbleCooldown = 0.2f;
         BubbleTime = BubbleCooldown;
+        FaceUI = GameObject.Find("FaceUI").GetComponent<Image>();
+        FaceUI.sprite = UIFace[0];
         Invoke("StartedInWater", 0.2f);
     }
 
@@ -119,8 +137,91 @@ public class CharacterControler : MonoBehaviour
 
     void TakeDamage(int DamageAmount)
     {
+        CurrentHealth = CurrentHealth - DamageAmount;
+        Healthbar.value = CurrentHealth;
 
 
+        if (Healthbar.value <= MaxHealth / 5 * 4 && Healthbar.value > MaxHealth / 5 * 3)
+        {
+            FaceUI.sprite = UIFace[1];
+
+            Debug.Log("current health is less than or = to " + MaxHealth / 5 * 4 + " But greatere than " + MaxHealth / 5 * 3);
+
+        }
+        else if (Healthbar.value <= MaxHealth / 5 * 3 && Healthbar.value > MaxHealth / 5 * 2)
+        {
+            FaceUI.sprite = UIFace[2];
+            Debug.Log("current health is less than or = to " + MaxHealth / 5 * 3 + " But greatere than " + MaxHealth / 5 * 2);
+
+
+        }
+        else if (Healthbar.value <= MaxHealth / 5 * 2 && Healthbar.value > MaxHealth / 5 * 1)
+        {
+            FaceUI.sprite = UIFace[3];
+            Debug.Log("current health is less than or = to " + MaxHealth / 5 * 2 + " But greatere than " + MaxHealth / 5 * 1);
+
+
+        }
+        else if (Healthbar.value <= MaxHealth / 5 && Healthbar.value != 0)
+        {
+            FaceUI.sprite = UIFace[4];
+            Debug.Log("current health is less than or = to " + MaxHealth / 5);
+
+
+        }
+        else if (Healthbar.value > MaxHealth / 5 * 4)
+        {
+            FaceUI.sprite = UIFace[0];
+            Debug.Log("Health is higher than " + MaxHealth / 5 * 4);
+        }
+        else if (Healthbar.value == 0)
+        {
+            FaceUI.sprite = UIFace[5];
+            Death();
+
+        }
+
+
+    }
+
+    void Death()
+    {
+        NewRotation = Quaternion.Euler(180, 0, 0);
+        Bambozled = true;
+        CurrentRotation = transform.rotation;
+        ExpressionsScript.eyes = Expressions.Eyes.Bambozled;
+        ExpressionsScript.ChangeExpression();
+        Ridge.velocity = Vector2.zero;
+        RestartText.SetActive(true);
+        //ExpressionsScript.EnableBambozledEyes();
+
+
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+        
+
+
+
+
+    }
+    void HasReset()
+    {
+        
+
+
+
+    }
+
+
+
+    void INeedHealing(int HealingAmount)
+    {
+
+        CurrentHealth = CurrentHealth - HealingAmount;
+        Healthbar.value = CurrentHealth;
 
 
     }
@@ -223,6 +324,7 @@ public class CharacterControler : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+        Debug.Log("PuffyHasCollidedWith " + collision.gameObject.name);
 		if(collision.collider.tag == "Ground")
 		{
 			Grounded = true;
@@ -230,7 +332,15 @@ public class CharacterControler : MonoBehaviour
 
 
 		}
+        if(collision.collider.tag == "Shark")
+        {
+            Debug.Log("Collision is shark");
+            TakeDamage(1);
 
+
+
+
+        }
 
 
 
@@ -333,130 +443,142 @@ public class CharacterControler : MonoBehaviour
         float jump = Input.GetAxisRaw("Jump");
         if(Ridge.gravityScale == GravityRange) swimming = false;
 
-        if(swimming) {
-            Ridge.velocity += new Vector2(Hoz, Vert) * Speed;
-            if(Ridge.velocity.magnitude > maxSpeed) Ridge.velocity = Vector3.Normalize(Ridge.velocity) * maxSpeed;
-            if(Hoz == 0 && Vert == 0) Ridge.velocity = Vector2.zero;
-        }
-        else {
-            Ridge.velocity = new Vector2(Hoz * maxSpeed, Ridge.velocity.y);
-            if(jump > 0 && !jumped) {
-                Flap();
-                Ridge.velocity = new Vector2(Ridge.velocity.x, FlyForce);
-                jumped = true;
-            }
-            else if(jump == 0) jumped = false;
-        }
-
-        CurrentRotation = transform.rotation;
-
-        if (Hoz > 0 && Vert == 0) //Right
-        {
-            NewRotation = Quaternion.Euler(0, 0, 0);
-            transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
-            CurrentRotation = transform.rotation;
-            Direction = new Vector2(1, 0);
-
-        }
-        if (Vert < 0 && Hoz > 0) //Right and down
-        {
-            NewRotation = Quaternion.Euler(0, 0, -45);
-            transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
-            CurrentRotation = transform.rotation;
-            Direction = new Vector2(1, -1);
-
-        }
-
-
-
-        else if (Hoz < 0 && Vert == 0) //Left
+    
+        if(Bambozled == false)
         {
 
-            NewRotation = Quaternion.Euler(0, 180, 0);
-            transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
-            CurrentRotation = transform.rotation;
-            Direction = new Vector2(-1, 0);
-
-
-        }
-
-        else if (Vert < 0 && Hoz < 0) //Down left
-        {
-
-            NewRotation = Quaternion.Euler(0, 180, -45);
-            transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
-            CurrentRotation = transform.rotation;
-            Direction = new Vector2(-1, -1);
-
-
-        }
-
-
-        else if (Vert < 0) // Down
-        {
-            if (!flipped)
+            if (swimming)
             {
-                NewRotation = Quaternion.Euler(0, 0, -90);
+                Ridge.velocity += new Vector2(Hoz, Vert) * Speed;
+                if (Ridge.velocity.magnitude > maxSpeed) Ridge.velocity = Vector3.Normalize(Ridge.velocity) * maxSpeed;
+                if (Hoz == 0 && Vert == 0) Ridge.velocity = Vector2.zero;
+            }
+            else
+            {
+                Ridge.velocity = new Vector2(Hoz * maxSpeed, Ridge.velocity.y);
+                if (jump > 0 && !jumped)
+                {
+                    Flap();
+                    Ridge.velocity = new Vector2(Ridge.velocity.x, FlyForce);
+                    jumped = true;
+                }
+                else if (jump == 0) jumped = false;
+            }
+
+            CurrentRotation = transform.rotation;
+
+            if (Hoz > 0 && Vert == 0) //Right
+            {
+                NewRotation = Quaternion.Euler(0, 0, 0);
                 transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
                 CurrentRotation = transform.rotation;
-                Direction = new Vector2(0, -1);
+                Direction = new Vector2(1, 0);
 
             }
-
-            
-
-            if (flipped) // Is left
+            if (Vert < 0 && Hoz > 0) //Right and down
             {
-                NewRotation = Quaternion.Euler(0, 180, -90);
+                NewRotation = Quaternion.Euler(0, 0, -45);
                 transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
                 CurrentRotation = transform.rotation;
-                Direction = new Vector2(0, -1);
-
+                Direction = new Vector2(1, -1);
 
             }
 
-        }
-        else if (Vert > 0 && Hoz > 0) //Up right
-        {
-
-            NewRotation = Quaternion.Euler(0, 0, 45);
-            transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
-            CurrentRotation = transform.rotation;
-            Direction = new Vector2(1, 1);
 
 
-        }
-
-        else if (Vert > 0 && Hoz < 0) //Up and Left 
-        {
-
-            NewRotation = Quaternion.Euler(0, 180, 45);
-            transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
-            CurrentRotation = transform.rotation;
-            Direction = new Vector2(-1, 1);
-
-        }
-
-        else if (Vert > 0) //Up
-        {
-            if (!flipped)
+            else if (Hoz < 0 && Vert == 0) //Left
             {
-                NewRotation = Quaternion.Euler(0, 0, 90);
-                transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
+
+                NewRotation = Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
                 CurrentRotation = transform.rotation;
-                Direction = new Vector2(0, 1);
+                Direction = new Vector2(-1, 0);
+
 
             }
 
-
-
-            if (flipped) // Is left
+            else if (Vert < 0 && Hoz < 0) //Down left
             {
-                NewRotation = Quaternion.Euler(0, 180, 90);
-                transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
+
+                NewRotation = Quaternion.Euler(0, 180, -45);
+                transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
                 CurrentRotation = transform.rotation;
+                Direction = new Vector2(-1, -1);
+
+
             }
+
+
+            else if (Vert < 0) // Down
+            {
+                if (!flipped)
+                {
+                    NewRotation = Quaternion.Euler(0, 0, -90);
+                    transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
+                    CurrentRotation = transform.rotation;
+                    Direction = new Vector2(0, -1);
+
+                }
+
+
+
+                if (flipped) // Is left
+                {
+                    NewRotation = Quaternion.Euler(0, 180, -90);
+                    transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
+                    CurrentRotation = transform.rotation;
+                    Direction = new Vector2(0, -1);
+
+
+                }
+
+            }
+            else if (Vert > 0 && Hoz > 0) //Up right
+            {
+
+                NewRotation = Quaternion.Euler(0, 0, 45);
+                transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
+                CurrentRotation = transform.rotation;
+                Direction = new Vector2(1, 1);
+
+
+            }
+
+            else if (Vert > 0 && Hoz < 0) //Up and Left 
+            {
+
+                NewRotation = Quaternion.Euler(0, 180, 45);
+                transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed); //Flipped
+                CurrentRotation = transform.rotation;
+                Direction = new Vector2(-1, 1);
+
+            }
+
+            else if (Vert > 0) //Up
+            {
+                if (!flipped)
+                {
+                    NewRotation = Quaternion.Euler(0, 0, 90);
+                    transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
+                    CurrentRotation = transform.rotation;
+                    Direction = new Vector2(0, 1);
+
+                }
+
+
+
+                if (flipped) // Is left
+                {
+                    NewRotation = Quaternion.Euler(0, 180, 90);
+                    transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
+                    CurrentRotation = transform.rotation;
+                }
+            }
+
+
+
         }
+       
     }
 
     
@@ -467,7 +589,23 @@ public class CharacterControler : MonoBehaviour
     void Update()
     {
 
-		if(Hoz != 0)
+        
+        if(Bambozled == true)
+        {
+            transform.rotation = Quaternion.Slerp(CurrentRotation, NewRotation, TurnSpeed);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Restart();
+
+
+            }
+
+
+
+        }
+
+
+        if (Hoz != 0)
 		{
 			AnimationScript.PlayerAnimator.SetBool("IsMoving", true);
 

@@ -162,8 +162,9 @@ public class SharkAI : MonoBehaviour
         float RotationZ = Mathf.Clamp(ThisObject.rotation.z, -270f, -90f);
 
       
-       transform.position = Vector2.MoveTowards(transform.position, TargetObject.transform.position, Speed * Time.deltaTime); //Moves the shark
+         Vector2 TheMovement = transform.position = Vector2.MoveTowards(transform.position, TargetObject.transform.position, Speed * Time.deltaTime); //Moves the shark
 
+       
         if(SharkState == State.ChasePuffy)
         {
             transform.right = TargetObject.transform.position - transform.position;
@@ -190,7 +191,8 @@ public class SharkAI : MonoBehaviour
                 {
                     Debug.Log("Shark can see puffy");
                     ChasePuffy();
-
+                    CancelInvoke("WaypointMode");
+                    Invoke("WaypointMode", 180f);
 
                 }
 
