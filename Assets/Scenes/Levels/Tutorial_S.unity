@@ -8322,9 +8322,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Swim Controls:
 
-    W - Up   A - Left   S - Down   D- Right
+    W - Up   A - Left   S - Down   D - Right
 
-    F - Inflate'
+    F -
+    Inflate   R - Dash'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -8594,7 +8595,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.06}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
