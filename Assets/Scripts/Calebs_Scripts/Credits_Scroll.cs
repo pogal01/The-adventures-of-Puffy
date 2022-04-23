@@ -23,20 +23,20 @@ public class Credits_Scroll : MonoBehaviour
         {
             foreach (TMP_Text Text in text_Elements)
             {
-                Text.transform.Translate(Vector3.up * scroll_Speed);
+                Text.transform.Translate(Vector3.up * (scroll_Speed * Time.deltaTime));
             }
             foreach (GameObject Object in object_Elements)
             {
                 if (Object != object_Elements[0])
                 {
-                    Object.transform.Translate(Vector3.up * scroll_Speed);
+                    Object.transform.Translate(Vector3.up * (scroll_Speed * Time.deltaTime));
                 }   
             }
         }
 
         if (text_Elements[0].transform.localPosition.y >= -235 && text_Elements[0].transform.localPosition.y <= 4600)
         {
-            object_Elements[0].transform.Translate(Vector3.up * scroll_Speed);
+            object_Elements[0].transform.Translate(Vector3.up * (scroll_Speed * Time.deltaTime));
         }
     }
 }

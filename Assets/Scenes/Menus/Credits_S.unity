@@ -1008,8 +1008,8 @@ MonoBehaviour:
   - {fileID: 1484409493}
   - {fileID: 630852330}
   - {fileID: 370089890}
-  delay_Time: 2
-  scroll_Speed: 0.015
+  delay_Time: 1
+  scroll_Speed: 1.5
 --- !u!1 &990222379
 GameObject:
   m_ObjectHideFlags: 0
@@ -5803,7 +5803,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3712960221443311108, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5847,7 +5847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712960221443311110, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
       propertyPath: m_Name
-      value: Scene_Manager (1)
+      value: Scene_Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
