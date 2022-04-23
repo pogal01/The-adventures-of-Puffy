@@ -12,6 +12,7 @@ public class Menu_Controller : MonoBehaviour
 
     [SerializeField] private Slider volume_Slider = null;
     [SerializeField] private TMP_Text volume_Text_UI = null;
+    private float volume_Value;
 
     public bool game_Is_Paused = false;
     public GameObject pause_Menu_UI;
@@ -20,6 +21,8 @@ public class Menu_Controller : MonoBehaviour
 
     public void Start()
     {
+        volume_Slider.value = volume_Value;
+        AudioListener.volume = volume_Value;
         Get_Resolutions();
         Load_Values();
     }
@@ -95,7 +98,7 @@ public class Menu_Controller : MonoBehaviour
 
     public void Save_Volume_Button()
     {
-        float volume_Value = volume_Slider.value;
+        volume_Value = volume_Slider.value;
         PlayerPrefs.SetFloat("Game_Volume", volume_Value);
         Load_Values();
     }
