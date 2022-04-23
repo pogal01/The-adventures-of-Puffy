@@ -220,7 +220,7 @@ public class CharacterControler : MonoBehaviour
     void INeedHealing(int HealingAmount)
     {
 
-        CurrentHealth = CurrentHealth - HealingAmount;
+        CurrentHealth = CurrentHealth + HealingAmount;
         Healthbar.value = CurrentHealth;
 
 

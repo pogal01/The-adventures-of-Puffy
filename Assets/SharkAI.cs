@@ -138,7 +138,7 @@ public class SharkAI : MonoBehaviour
         SharkState = State.ChasePuffy;
         TargetObject = Puffy;
         Rotation = transform.rotation.eulerAngles;
-        Speed = 10;
+        Speed = 9.0f;
 
         CheckSharkIsNotUpsidedown();
 
