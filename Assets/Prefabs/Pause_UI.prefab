@@ -717,7 +717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4706404551726588602}
   - component: {fileID: 1852915831184458902}
-  - component: {fileID: 8986716047759301712}
+  - component: {fileID: 3062653052078627652}
   m_Layer: 5
   m_Name: Menu_Controller
   m_TagString: Untagged
@@ -756,14 +756,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecce222ca599b8647a92c694805114bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolution_Dropdown: {fileID: 8965879722263715328}
   volume_Slider: {fileID: 6742210893370235417}
   volume_Text_UI: {fileID: 6192173677151976589}
-  resolution_Dropdown: {fileID: 8965879722263715328}
   game_Is_Paused: 0
   pause_Menu_UI: {fileID: 7571108602216105539}
   pause_Button_Objects: {fileID: 5694808756273034022}
   settings_Objects: {fileID: 6237143133610029705}
---- !u!114 &8986716047759301712
+--- !u!114 &3062653052078627652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -775,6 +775,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb71f33a339ef44a74e287458c61d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Loading_Panel: {fileID: 0}
+  slider: {fileID: 0}
+  progress_Text: {fileID: 0}
+  sceneNumber: 0
+  oldPreviousScene: 0
 --- !u!1 &1306342335450209826
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +957,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4298,7 +4303,7 @@ GameObject:
   - component: {fileID: 4854897433007359375}
   - component: {fileID: 4022012597586611594}
   m_Layer: 5
-  m_Name: Pause_Menu
+  m_Name: Pause_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4963,7 +4968,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8986716047759301712}
+      - m_Target: {fileID: 3062653052078627652}
         m_TargetAssemblyTypeName: Scene_Manager, Assembly-CSharp
         m_MethodName: Main_Menu
         m_Mode: 1

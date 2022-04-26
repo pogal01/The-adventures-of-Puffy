@@ -2916,8 +2916,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 641319001}
         m_TargetAssemblyTypeName: Scene_Manager, Assembly-CSharp
-        m_MethodName: Load_Level
-        m_Mode: 3
+        m_MethodName: Gamemodes
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

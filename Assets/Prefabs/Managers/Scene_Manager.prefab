@@ -335,7 +335,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5570557090495120950
 MonoBehaviour:
@@ -426,6 +426,7 @@ MonoBehaviour:
   progress_Text: {fileID: 2518168439161996183}
   sceneNumber: 0
   oldPreviousScene: 0
+  to_Disable: []
 --- !u!1 &4475088104842842192
 GameObject:
   m_ObjectHideFlags: 0

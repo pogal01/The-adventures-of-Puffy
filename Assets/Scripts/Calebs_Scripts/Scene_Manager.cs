@@ -32,7 +32,7 @@ public class Scene_Manager : MonoBehaviour
 
         while (!operation.isDone)
         {
-            float progress = Mathf.Clamp01(operation.progress);
+            float progress = Mathf.Clamp01(operation.progress / .9f);
 
             Debug.Log(progress);
 
@@ -59,6 +59,12 @@ public class Scene_Manager : MonoBehaviour
     {
         Debug.Log("Switching to Main Menu");
         SceneManager.LoadScene("Main_Menu_S");
+    }
+
+    public void Gamemodes()
+    {
+        Debug.Log("Switching to Gamemodes");
+        SceneManager.LoadScene("Gamemodes_S");
     }
 
     public void Settings()

@@ -53,7 +53,7 @@ public class CharacterControler : MonoBehaviour
     //UI
 
     public int MaxHealth;
-    private int CurrentHealth;
+    public int CurrentHealth;
     private Slider Healthbar;
     [SerializeField] private Sprite[] UIFace;
     private Image FaceUI;
