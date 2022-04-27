@@ -59,6 +59,7 @@ public class Scene_Manager : MonoBehaviour
     {
         Debug.Log("Switching to Main Menu");
         SceneManager.LoadScene("Main_Menu_S");
+        Time.timeScale = 1f;
     }
 
     public void Gamemodes()
@@ -74,15 +75,15 @@ public class Scene_Manager : MonoBehaviour
             Debug.Log("Switching to Setting");
             SceneManager.LoadScene("Settings_S");
         }
-        else if (oldPreviousScene == 1)
-        {
-            Debug.Log("Switching to Setting");
-            SceneManager.LoadScene("Settings_S");
-        }
         else if (oldPreviousScene == 6)
         {
             Debug.Log("Switching to Main Menu");
             SceneManager.LoadScene("Main_Menu_S");
+        }
+        else
+        {
+            Debug.Log("Switching to Setting");
+            SceneManager.LoadScene("Settings_S");
         }
     }
 
