@@ -17,19 +17,25 @@ public class Endless : MonoBehaviour
     public List<GameObject> sharks;
     public int i = 0;
 
-    public GameObject puffy;
+    public GameObject score_Screen;
+    public TMP_Text score;
+    public TMP_Text time;
+
+    private GameObject puffy;
     CharacterControler cC;
 
-    public GameObject menu;
-    Menu_Controller mC;
+    //public GameObject menu;
+    //Menu_Controller mC;
 
     private void Start()
     {
+        score_Screen.SetActive(false);
+
         puffy = GameObject.Find("Puffy");
         cC = puffy.GetComponent<CharacterControler>();
 
-        menu = GameObject.Find("Menu_Controller");
-        mC = menu.GetComponent<Menu_Controller>();
+        //menu = GameObject.Find("Menu_Controller");
+        //mC = menu.GetComponent<Menu_Controller>();
 
         Summon_Shark();
     }
@@ -40,6 +46,7 @@ public class Endless : MonoBehaviour
         summon_Timer -= Time.deltaTime;
         int mins = Mathf.FloorToInt(count_Up / 60F);
         int secs = Mathf.FloorToInt(count_Up - mins * 60);
+        int survive_Score = Mathf.FloorToInt(count_Up);
         string timer_Formatting = string.Format("{0:0}:{1:00}", mins, secs);
 
         timer.text = timer_Formatting;
@@ -61,7 +68,11 @@ public class Endless : MonoBehaviour
 
         if (cC.CurrentHealth <= 0)
         {
-            mC.Pause();
+            Debug.Log("Puffy Died");
+            Time.timeScale = 0f;
+            score_Screen.SetActive(true);
+            time.text = "You survived\n" + timer_Formatting;
+            score.text = (survive_Score*2).ToString();
         }
     }
 
