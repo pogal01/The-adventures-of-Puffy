@@ -48532,6 +48532,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1363636490}
     - target: {fileID: 2303007980964939682, guid: 0e5b12b56c3c66e428382df17338265d, type: 3}
+      propertyPath: WhichScene
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303007980964939682, guid: 0e5b12b56c3c66e428382df17338265d, type: 3}
       propertyPath: Loading_Panel
       value: 
       objectReference: {fileID: 1346599330}

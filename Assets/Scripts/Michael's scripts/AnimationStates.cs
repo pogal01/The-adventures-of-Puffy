@@ -25,6 +25,7 @@ public class AnimationStates : StateMachineBehaviour
 	{
 		if(!CharacterControlerScript.swimming)
 		{
+            /*
 			if (CharacterControlerScript.LastCollider == GameObject.Find("Sky").GetComponent<BoxCollider2D>())
 			{
 				Animationscript.FlyAnimFin();
@@ -32,6 +33,7 @@ public class AnimationStates : StateMachineBehaviour
 
 
 			}
+            */
 		}
 	
 	}
