@@ -45,7 +45,7 @@ public class CharacterControler : MonoBehaviour
     private int moveCounter;
     public bool swimming = true;
 
-    private bool Bambozled;
+    public bool Bambozled;
 
     private Vector2 Spawnpoint;
     private bool IsResetting;

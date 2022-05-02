@@ -71,6 +71,7 @@ public class Endless : MonoBehaviour
             Debug.Log("Puffy Died");
             Time.timeScale = 0f;
             score_Screen.SetActive(true);
+            cC.Bambozled = false;
             time.text = "You survived\n" + timer_Formatting;
             score.text = (survive_Score*2).ToString();
         }
@@ -85,6 +86,7 @@ public class Endless : MonoBehaviour
 
     public void Endless_Quit()
     {
+
         float current_time = Time.timeScale;
         Debug.Log("Current Timescale = " + current_time);
         Time.timeScale = 1.0f;
