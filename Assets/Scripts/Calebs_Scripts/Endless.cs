@@ -82,4 +82,15 @@ public class Endless : MonoBehaviour
         sharks.Add(Instantiate(shark, position, Quaternion.identity, shark_Storage.transform));
         sharks[i].name = "Shark_" + i;
     }
+
+    public void Endless_Quit()
+    {
+        float current_time = Time.timeScale;
+        Debug.Log("Current Timescale = " + current_time);
+        Time.timeScale = 1.0f;
+        current_time = Time.timeScale;
+        Debug.Log("Current Timescale = " + current_time);
+        Debug.Log("Switching to Main Menu");
+        SceneManager.LoadScene("Main_Menu_S");
+    }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Menu_Controller : MonoBehaviour
 {
@@ -141,5 +142,12 @@ public class Menu_Controller : MonoBehaviour
         Debug.Log("Paused Settings Closed");
         pause_Button_Objects.SetActive(true);
         settings_Objects.SetActive(false);
+    }
+
+    public void Paused_Quit()
+    {
+        Time.timeScale = 1.0f;
+        Debug.Log("Switching to Main Menu");
+        SceneManager.LoadScene("Main_Menu_S");
     }
 }

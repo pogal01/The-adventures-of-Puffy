@@ -5366,6 +5366,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 3712960221443311111, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 1865825080}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d18355de1cb7d40827ec98e7894596, type: 3}
 --- !u!1001 &5508817861231387336

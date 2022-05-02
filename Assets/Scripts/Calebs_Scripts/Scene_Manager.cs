@@ -17,10 +17,8 @@ public class Scene_Manager : MonoBehaviour
     public static int previousScene;
     public int oldPreviousScene;
 
-
     public void Load_Level(int scene_Index)
     {
-        
         StartCoroutine(Load_Asynchronously(scene_Index));
     }
 
@@ -44,22 +42,23 @@ public class Scene_Manager : MonoBehaviour
 
         while (operation.isDone)
         {
+            Time.timeScale = 1.0f;
             Loading_Panel.SetActive(false);
         }
     }
 
     public void Start()
     {
-        
+        Time.timeScale = 1.0f;
         oldPreviousScene = previousScene;
         previousScene = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void Main_Menu()
     {
+        Time.timeScale = 1.0f;
         Debug.Log("Switching to Main Menu");
         SceneManager.LoadScene("Main_Menu_S");
-        Time.timeScale = 1f;
     }
 
     public void Gamemodes()
@@ -75,7 +74,7 @@ public class Scene_Manager : MonoBehaviour
             Debug.Log("Switching to Setting");
             SceneManager.LoadScene("Settings_S");
         }
-        else if (oldPreviousScene == 6)
+        else if (oldPreviousScene == 7)
         {
             Debug.Log("Switching to Main Menu");
             SceneManager.LoadScene("Main_Menu_S");
@@ -91,7 +90,6 @@ public class Scene_Manager : MonoBehaviour
     {
         Debug.Log("Switching to Credits");
         SceneManager.LoadScene("Credits_S");
-
     }
 
     public void Quit()
@@ -99,6 +97,4 @@ public class Scene_Manager : MonoBehaviour
         Debug.Log("Quitting Game");
         Application.Quit();
     }
-
-
 }
